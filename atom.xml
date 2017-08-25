@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yuxiang.ren/"/>
-  <updated>2017-08-25T00:16:01.000Z</updated>
+  <updated>2017-08-11T01:16:31.000Z</updated>
   <id>https://yuxiang.ren/</id>
   
   <author>
@@ -14,39 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>谁记得</title>
-    <link href="https://yuxiang.ren/2017/08/15/%E8%B0%81%E8%AE%B0%E5%BE%97/"/>
-    <id>https://yuxiang.ren/2017/08/15/谁记得/</id>
-    <published>2017-08-15T05:09:09.000Z</published>
-    <updated>2017-08-25T00:16:01.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>他说的我们到底算是什么<br>难道听到的感觉都是错的<br>暧昧与溺爱总是差了什么<br>明明彼此笑了 却又不见了</p>
-<a id="more"></a>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="https://music.163.com/outchain/player?type=2&id=35040810&auto=1&height=66"></iframe>
-
-<p>你不在的世界里都是阴天<br>思念像太用力会扯断的线<br>沉默却压抑着燃烧的我们<br>该死的勇气 到底在哪里</p>
-<p>我记得那瞬间<br>相拥一起不會疲倦<br>说好彼此想念<br>却变成背对背怀念</p>
-<p>谁记得那瞬间<br>我们像永恒的画面<br>按下了暂停键<br>想念一直停在指尖</p>
-<p>错爱过痛哭过却不想放手<br>难道我们还抱着回忆享受<br>放过我也想要你放过自己<br>爱就要说出口 别假装朋友</p>
-<p>我记得那瞬间<br>相拥一起不會疲倦<br>说好彼此想念<br>却变成背对背怀念</p>
-<p>谁记得那瞬间<br>我们像永恒的画面<br>按下了暂停键<br>想念一直停在指尖<br>我记得那瞬间<br>相拥一起不會疲倦<br>说好彼此想念<br>却变成背对背怀念</p>
-<p>谁记得那瞬间<br>我们像永恒的画面<br>按下了暂停键<br>想念一直停在指尖<br>按下了暂停键<br>想念一直停在指尖</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;他说的我们到底算是什么&lt;br&gt;难道听到的感觉都是错的&lt;br&gt;暧昧与溺爱总是差了什么&lt;br&gt;明明彼此笑了 却又不见了&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Music" scheme="https://yuxiang.ren/categories/Music/"/>
-    
-    
-      <category term="Music" scheme="https://yuxiang.ren/tags/Music/"/>
-    
-  </entry>
   
   <entry>
     <title>ViewController滚动标题</title>
@@ -1373,6 +1340,48 @@
     
     
       <category term="杂碎" scheme="https://yuxiang.ren/tags/%E6%9D%82%E7%A2%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重写UIScrollView分类dealloc错误</title>
+    <link href="https://yuxiang.ren/2016/12/06/UIScrollView-Category-error-message-with-deallocated-instance/"/>
+    <id>https://yuxiang.ren/2016/12/06/UIScrollView-Category-error-message-with-deallocated-instance/</id>
+    <published>2016-12-06T01:25:01.000Z</published>
+    <updated>2017-04-13T07:51:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>[UIScrollView _systemGestureStateChanged:]: message sent to deallocated instance&gt; 错误解决方法<br>[UITableViewWrapperView _systemGestureStateChanged] 解决亦是如此</p>
+</blockquote>
+<p>今天一个朋友自己的程序出现了一个bug, 不知道怎么解决, 他把报错内容给我, 报错内容如下:</p>
+<p><img src="https://ww4.sinaimg.cn/large/65e4f1e6gw1fagsd983rsj21g60ggjyt.jpg" width="600"><br>就是普通的僵尸对象错误, 可是解决就不是那么简单了…</p>
+<p>我翻边了各大国内过外网站, 终于再一个不显眼的地方看到了大致是因为在<code>UIScrollView</code>分类重写了<code>dealloc</code>方法导致.</p>
+<a id="more"></a>
+<p>于是我去项目里看一下<code>UIScrollView</code>的分类. 果真, 这个第三方重写了<code>dealoc</code>, 把它注释掉果然没有出现僵尸对象了.</p>
+<p>可是问题又来了,这个分类是在<code>dealloc</code>里移除监听的<br><img src="https://ww4.sinaimg.cn/large/65e4f1e6gw1fagsjlodobj20qw04ywfe.jpg" width="500"></p>
+<p>我想到了<code>MJRefresh</code>使用的也是同样的原理, 于是我去看了他的代码,他是再这里移除监听的<br><img src="https://ww4.sinaimg.cn/large/65e4f1e6gw1fagsl6oopij210a07yacr.jpg" width="500"></p>
+<p>那我们就学着他<br><img src="https://ww4.sinaimg.cn/large/65e4f1e6gw1fagslu9vecj20zk0ba41t.jpg" width="500"></p>
+<p>重新运行程序, 问题解决.</p>
+<p>然而, 又有新的问题出现, 就是通知移除的问题, 为了彻底解决自己写了个.<br>代码地址:<a href="https://github.com/shlyren/ZYScaleHeader" target="_blank" rel="external">https://github.com/shlyren/ZYScaleHeader</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;[UIScrollView _systemGestureStateChanged:]: message sent to deallocated instance&amp;gt; 错误解决方法&lt;br&gt;[UITableViewWrapperView _systemGestureStateChanged] 解决亦是如此&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天一个朋友自己的程序出现了一个bug, 不知道怎么解决, 他把报错内容给我, 报错内容如下:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ww4.sinaimg.cn/large/65e4f1e6gw1fagsd983rsj21g60ggjyt.jpg&quot; width=&quot;600&quot;&gt;&lt;br&gt;就是普通的僵尸对象错误, 可是解决就不是那么简单了…&lt;/p&gt;
+&lt;p&gt;我翻边了各大国内过外网站, 终于再一个不显眼的地方看到了大致是因为在&lt;code&gt;UIScrollView&lt;/code&gt;分类重写了&lt;code&gt;dealloc&lt;/code&gt;方法导致.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="error" scheme="https://yuxiang.ren/categories/error/"/>
+    
+    
+      <category term="Xcode" scheme="https://yuxiang.ren/tags/Xcode/"/>
+    
+      <category term="error" scheme="https://yuxiang.ren/tags/error/"/>
     
   </entry>
   
