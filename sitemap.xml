@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yuxiang.ren/2017/03/31/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2017-08-27T10:58:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yuxiang.ren/2017/08/25/%E5%9C%A8Nginx%E4%B8%8A%E9%83%A8%E7%BD%B2Let-s-Encrypt%E8%AF%81%E4%B9%A6/</loc>
     
     <lastmod>2017-08-27T10:10:40.000Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://yuxiang.ren/2017/07/27/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2017-08-27T06:24:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yuxiang.ren/2017/03/31/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2017-08-27T06:20:40.000Z</lastmod>
     
   </url>
   
