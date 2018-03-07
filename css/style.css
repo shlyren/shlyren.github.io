@@ -242,6 +242,7 @@ input#delivery {
 	display: table-cell;
 	vertical-align: middle;
 }
+
 /* No padding on-the-fly */
 .nopadding {
 	padding: 0;
@@ -850,6 +851,7 @@ span.sb-caret { /* Caret Down */
 	position: fixed;
 	width: 100%;
 	padding-top: 0;
+
 }
 #hero h2 {
 	color: #151515;
@@ -3157,12 +3159,21 @@ footer .footer-top{
 }
 footer .copy {
 	float: left;
-	margin-top: 5px;
 }
-footer .copy p {
+footer .copyRights {
 	font-size: 12px;
 	color: #767D84;
 }
+footer .copyRights a {
+	font-size: 12px;
+	color: #767D84;
+}
+
+footer .copyRights img {
+	width: 15px;
+	margin-top: 5px;
+}
+
 footer .social {
 	float: right;
 	margin-top: 5px;
@@ -3333,6 +3344,7 @@ footer .footer_bottom {
 .icon-feed:before { content: "\e631"; }
 .icon-twitter:before { content: "\e630"; font-size: 1.1em; }
 .icon-google-plus:before { content: "\e62d"; }
+.icon-qq:before { content: "\e65e"; }
 .icon-facebook:before { content: "\e62f"; }
 .icon-sina-weibo:before { content: "\e666"; }
 .icon-github:before { content: "\e636"; }
