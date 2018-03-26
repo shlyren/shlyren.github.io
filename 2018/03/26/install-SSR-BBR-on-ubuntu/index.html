@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>网站大事记 | 任玉祥</title>
+  <title>安装ShadowsocksR以及BBR加速 | 任玉祥</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -169,94 +169,66 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
+      
 
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div >
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
 
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
 <section id="intro">
     <div class="container">
         <div class="row col-md-offset-2">
             <div class="col-md-8">
-                <h1>网站大事记</h1>
+    			<span class="post-meta">
+      <time datetime="2018-03-26T06:24:39.000Z" itemprop="datePublished">
+          2018-03-26
+      </time>
+    
+    
+    | 
+    <a href='/tags/教程/'>教程</a>,
+    
+    <a href='/tags/Shadowsocks/'>Shadowsocks</a>
+    
+    
+</span>
+                <h1>安装ShadowsocksR以及BBR加速</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-            <p><strong>2017/8</strong></p>
-<ul>
-<li>好景不长,网易云跟帖停止服务,故换为友言评论;</li>
-<li>然而友言不支持https, 所以换为畅言(好在网站备案了);</li>
-<li>由于有两台vps, 所以启用了负载均衡😆😆😆;</li>
-</ul>
-<p><strong>2017/4</strong></p>
-<ul>
-<li>将名下的所有域名备案;</li>
-<li>租用阿里云服务器,并且把博客放在了阿里云主机上;</li>
-<li>重新部署服务器环境, 至此,速度有一定的提升;</li>
-<li>之前的vps只用来做翻墙服务;</li>
-<li>由于多说评论将停止服务, 故换成了网易云跟帖;</li>
-</ul>
-<p><strong>2016/12 </strong></p>
-<ul>
-<li>由于一次操作失误, vps上所有的数据全部删除, 博客内容全部清空;</li>
-<li>只能再次重新搭建, 部分文章恢复 ;</li>
-<li>将博客全部内容同步到了<a href="https://github.com/shlyren/shlyren.github.io" target="_blank" rel="external">Github</a>;</li>
-<li>https更换为付费版, 并且使用的通配符性(主要是方便以后的扩展…);</li>
-</ul>
-<p><strong>2016/6</strong></p>
-<ul>
-<li>全站使用https访问(好像是免费的startssl….);</li>
-</ul>
-<p><strong>2016/3</strong></p>
-<ul>
-<li>第一次尝试在vps上搭建博客, 用的是vultr的日本机房;</li>
-<li>采纳了朋友的建议使用了hexo环境搭建, 第一次折腾了很久;</li>
-<li>同时也搭建了翻墙环境, 以及<a href="https://google.yuxiang.ren" target="_blank" rel="external">Google代理</a>….;</li>
-</ul>
-<p><strong>2015/3</strong></p>
-<ul>
-<li>第一次注册域名, 那时候什么都不懂, 只能将域名重定向到我的微博<a href="http://weibo.com/shlyjen" target="_blank" rel="external">@任玉祥丶</a>;</li>
-<li>使用自己的域名作为邮箱:<a href="mailto:mail@yuxiang.ren">mail@yuxiang.ren</a></li>
-</ul>
+      		<p>一键安装ShadowsocksR脚本:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</div></pre></td></tr></table></figure>
+<p>原文: <a href="http://liyuans.com/archives/ssr-serverspeeder-onekey.html" target="_blank" rel="external">http://liyuans.com/archives/ssr-serverspeeder-onekey.html</a></p>
+<p>一键安装BBR 脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</div></pre></td></tr></table></figure>
+<p>原文: <a href="https://teddysun.com/489.html" target="_blank" rel="external">https://teddysun.com/489.html</a></p>
 
             <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
-        
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/03/21/let-s-Encrypt-use-Wildcard/">
+        let's Encrypt 申请通配符(ACME) →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
-<section id="process">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
-            
-        </div>
-    </div>
-</section>
+
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cyt9QnYLl'; 
+var conf = 'prod_c05600fbe8531e0e13048b26b16f3148'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); 
+</script>
 
       
 <!-- ============================ Footer =========================== -->
