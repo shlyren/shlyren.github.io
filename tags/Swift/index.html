@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Tag: Swift | 任玉祥</title>
+  <title>Tag: swift | 任玉祥</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -214,27 +214,9 @@
                         
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
                             
-                              <h4 class="title"><a href="/2016/04/26/Swift学习笔记03/">Swift学习笔记03</a></h4>
+                              <h4 class="title"><a href="/2017/09/11/deploy-swift-server-on-centos/">deploy swift server on centos7.3</a></h4>
                             
-                            <p><time datetime="2016-04-26T10:08:29.000Z"><a href="/2016/04/26/Swift学习笔记03/">2016-04-26</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/04/24/Swift学习笔记02/">Swift学习笔记02</a></h4>
-                            
-                            <p><time datetime="2016-04-24T07:34:28.000Z"><a href="/2016/04/24/Swift学习笔记02/">2016-04-24</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/04/23/Swift学习笔记01/">Swift学习笔记01</a></h4>
-                            
-                            <p><time datetime="2016-04-23T14:40:24.000Z"><a href="/2016/04/23/Swift学习笔记01/">2016-04-23</a></time></p>
+                            <p><time datetime="2017-09-11T00:56:08.000Z"><a href="/2017/09/11/deploy-swift-server-on-centos/">2017-09-11</a></time></p>
                         </div>
                     
                 </div>
@@ -326,6 +308,43 @@ $('#intro').find('img').each(function(){
 
   if (alt){
     $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      (function(){
+        console.log('font');
+        var getCss = function(path) {
+          var head = document.getElementsByTagName('head')[0];
+          link = document.createElement('link');
+          link.href = path;
+          link.rel = 'stylesheet';
+          link.type = 'text/css';
+          head.appendChild(link);
+        };
+        getCss('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+        getCss('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+      })();
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
+'<span class="caption" style="display:none">' + alt + '</span>');
   }
 
   $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
