@@ -195,7 +195,7 @@
 <li><p>clean命令删除所有的软件安装包</p>
 <ul>
 <li><p>在网络连接正常的情况下，我们执行软件安装命令，软件安装结束后，以 .deb 为后缀的软件包就不再需要了。所以要对他定期清理</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get clean</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get clean</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用上面命令即可上错所有的软件包</p>
 </li>
@@ -204,25 +204,25 @@
 <li><p>autoclean 删除不再可用的安装包</p>
 <ul>
 <li><p>与<code>clean</code>一样, 只不过它有选择地删除软件包：那些不再可用的安装包(比如，你再也不能够从软件仓库中下载到该软件包的当前版本、或更新版本)。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get autoclean</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get autoclean</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>remove 删除特定软件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get remove</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>purge清除软件残余</p>
 <ul>
 <li><p>purge 命令是 remove 命令的另一个版本，它可以在删除软件本身的同时，删除软件包的残余设置。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get purge 软件名</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get purge 软件名</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>autoremove 删除不需要的依赖包</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get autoremove</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get autoremove</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>处理登录提示有软件包未更新</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get update &amp;&amp; apt-get dist-upgrade</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update &amp;&amp; apt-get dist-upgrade</span><br></pre></td></tr></table></figure>
 <p>​</p>
 </li>
 <li><p>​</p>
@@ -246,32 +246,32 @@
 <li><p>查看某目录下占用空间最多的文件或目录</p>
 <ul>
 <li><p>取前10个。需要先进入该目录下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">du -cks * | sort -rn | head -n 10</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -cks * | sort -rn | head -n 10</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>查看某一目录大小:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">du -sh</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -sh</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="三-GIT相关"><a href="#三-GIT相关" class="headerlink" title="三.  GIT相关"></a>三.  GIT相关</h2><ol>
 <li><p>创建一个tag</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag &lt;标签名&gt; -m "commit message"</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag &lt;标签名&gt; -m "commit message"</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>提交tag</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git push ---tags #将本地所有标签一次性提交到git服务器</div><div class="line">git push &lt;标签名&gt; #将指定标签提交到git服务器</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git push ---tags #将本地所有标签一次性提交到git服务器</span><br><span class="line">git push &lt;标签名&gt; #将指定标签提交到git服务器</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除一个tag</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag -d &lt;标签名&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d &lt;标签名&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>删除远程标签</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin :&lt;标签名&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :&lt;标签名&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看所有标签</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>git warning: LF will be replaced by CRLF in</code>解决办法</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config core.autocrlf false</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config core.autocrlf false</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 

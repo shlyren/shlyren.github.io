@@ -185,9 +185,9 @@
     | 
     <a href='/tags/命令/'>命令</a>,
     
-    <a href='/tags/CocoaPods/'>CocoaPods</a>,
+    <a href='/tags/MacOS/'>MacOS</a>,
     
-    <a href='/tags/MacOS/'>MacOS</a>
+    <a href='/tags/CocoaPods/'>CocoaPods</a>
     
     
 </span>
@@ -206,7 +206,7 @@ ERROR: Possible alternatives: cocoapods
 <ul>
 <li>这是因为ruby的软件源rubygems.org因为使用亚马逊的云服务，被我天朝屏蔽了，需要更新一下ruby的源，过程如下：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ gem sources -l (查看当前ruby的源)</div><div class="line">$ gem sources --remove https://rubygems.org/</div><div class="line">$ gem sources -a https://ruby.taobao.org/</div><div class="line">$ gem sources -l</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources -l (查看当前ruby的源)</span><br><span class="line">$ gem sources --remove https://rubygems.org/</span><br><span class="line">$ gem sources -a https://ruby.taobao.org/</span><br><span class="line">$ gem sources -l</span><br></pre></td></tr></table></figure>
 <ul>
 <li>如果gem太老，可以尝试用如下命令升级gem<br>  <code>$ sudo gem update --system</code></li>
 <li>升级成功后会提示:<strong>RubyGems system software updated</strong></li>
@@ -220,12 +220,12 @@ ERROR: Possible alternatives: cocoapods
 <li>创建<strong>Podfile</strong>文件(一定要创建在跟.xcodeproj同级的目录下):<br><code>$ touch Podfile</code></li>
 <li>以安装AFN为例:<br><code>$ pod search AFNetWorking</code></li>
 <li><p>找到<strong>-&gt; AFNetworking</strong>,如下显示,复制<code>pod &#39;AFNetworking&#39;, &#39;~&gt; 3.0.4&#39;</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-&gt; AFNetworking (3.0.4)</div><div class="line">A delightful iOS and OS X networking framework.</div><div class="line">pod &apos;AFNetworking&apos;, &apos;~&gt; 3.0.4&apos;</div><div class="line">- Homepage: https://github.com/AFNetworking/AFNetworking</div><div class="line">- Source:   https://github.com/AFNetworking/AFNetworking.git</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-&gt; AFNetworking (3.0.4)</span><br><span class="line">A delightful iOS and OS X networking framework.</span><br><span class="line">pod &apos;AFNetworking&apos;, &apos;~&gt; 3.0.4&apos;</span><br><span class="line">- Homepage: https://github.com/AFNetworking/AFNetworking</span><br><span class="line">- Source:   https://github.com/AFNetworking/AFNetworking.git</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>编辑Podfile文件,推荐使用<code>vi</code>命令或Xcode编辑。不建议其他编辑器编辑，不然后面更新pods会有警告的。Terminal命令 :<br>  <code>$ vim Podfile</code></p>
 </li>
 <li><p>将下面代码粘进去,然后保存退出 ,<code>#</code>为注释</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">use_frameworks! #用于swift</div><div class="line">platform :ios, &apos;8.0&apos; # 支持的ios版本</div><div class="line">#下面放需要导入的第三方库的名字</div><div class="line">pod &apos;AFNetworking&apos;, &apos;~&gt; 3.0.4&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">use_frameworks! #用于swift</span><br><span class="line">platform :ios, &apos;8.0&apos; # 支持的ios版本</span><br><span class="line">#下面放需要导入的第三方库的名字</span><br><span class="line">pod &apos;AFNetworking&apos;, &apos;~&gt; 3.0.4&apos;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装:<br><code>pod install --verbose --no-repo-update</code></p>
 </li>

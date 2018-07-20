@@ -195,7 +195,7 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>本文基于<a href="https://hexo.io" target="_blank" rel="external">https://hexo.io</a> 博客框架. 基于Node.js</p>
+      		<p>本文基于<a href="https://hexo.io" target="_blank" rel="noopener">https://hexo.io</a> 博客框架. 基于Node.js</p>
 <ul>
 <li>本文在<a href="/2016/12/02/install-hexo-on-vps-and-update-with-git/">原文</a>基础上加以修改完善</li>
 <li>本文所使用的阿里云服务器系统为: <code>Ubuntu 16.04.2 LTS</code></li>
@@ -229,7 +229,7 @@
 <li><p>安装所需服务</p>
 <ul>
 <li><p>依次执行下面命令(过程有点漫长, 耐心等待)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">apt update &amp;&amp; apt upgrade -y # 14.04 使用apt-get</div><div class="line">apt install git -y</div><div class="line">curl -sL https://deb.nodesource.com/setup | bash</div><div class="line">apt install nodejs -y</div><div class="line">apt install nginx -y</div><div class="line">cd /etc/nginx/sites-available</div><div class="line">rm -rf default</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt update &amp;&amp; apt upgrade -y # 14.04 使用apt-get</span><br><span class="line">apt install git -y</span><br><span class="line">curl -sL https://deb.nodesource.com/setup | bash</span><br><span class="line">apt install nodejs -y</span><br><span class="line">apt install nginx -y</span><br><span class="line">cd /etc/nginx/sites-available</span><br><span class="line">rm -rf default</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>访问ip<code>106.14.9.43</code>出现nginx默认页面表示nginx安装成功,后面还需要对ngin进一步配置</p>
 </li>
@@ -238,7 +238,7 @@
 <li><p>安装git并且初始化git仓库</p>
 <ul>
 <li><p>依次执行一下命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cd ~</div><div class="line">mkdir repos &amp;&amp; cd repos</div><div class="line">mkdir yuxiang.ren.git &amp;&amp; cd yuxiang.ren.git #yuxiang.ren.git 为存放博客的git仓库(.git后缀) 名称并没有什么要求, 我只是为了方便才这样写的</div><div class="line">git init --bare #初始化一个裸仓库</div><div class="line">cd hooks</div><div class="line">touch post-receive # 这个文件是用来监听每次有push操作时执行文件里的命令,</div><div class="line">vi post-receive #此命令是编辑`post-receive`文件, 也可在本地编辑完上传到对应目录替换</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">mkdir repos &amp;&amp; cd repos</span><br><span class="line">mkdir yuxiang.ren.git &amp;&amp; cd yuxiang.ren.git #yuxiang.ren.git 为存放博客的git仓库(.git后缀) 名称并没有什么要求, 我只是为了方便才这样写的</span><br><span class="line">git init --bare #初始化一个裸仓库</span><br><span class="line">cd hooks</span><br><span class="line">touch post-receive # 这个文件是用来监听每次有push操作时执行文件里的命令,</span><br><span class="line">vi post-receive #此命令是编辑`post-receive`文件, 也可在本地编辑完上传到对应目录替换</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -246,7 +246,7 @@
 <ul>
 <li>这是一个自动更新博客源文件的脚本, 将仓库里的源文件拷贝到对应博客的源文件目录</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/bin/bash -l</span></div><div class="line">GIT_REPO=<span class="variable">$HOME</span>/repos/yuxiang.ren.git <span class="comment">#git仓库目录</span></div><div class="line">TMP_GIT_CLONE=<span class="variable">$HOME</span>/tmp/git/renyuxiang.ren <span class="comment">#git临时仓库</span></div><div class="line">PUBLIC_WWW=/var/www/yuxiang.ren <span class="comment">#博客的根目录 如果`wwww/` 下没有该文件夹 需要手动创建</span></div><div class="line">rm -rf <span class="variable">$&#123;TMP_GIT_CLONE&#125;</span> <span class="comment">#删除临时仓库</span></div><div class="line">git <span class="built_in">clone</span> <span class="variable">$GIT_REPO</span> <span class="variable">$TMP_GIT_CLONE</span> <span class="comment">#拷贝到临时仓库</span></div><div class="line">rm -rf <span class="variable">$&#123;PUBLIC_WWW&#125;</span>/* <span class="comment">#删除博客目录所有内容</span></div><div class="line">cp -rf <span class="variable">$&#123;TMP_GIT_CLONE&#125;</span>/* <span class="variable">$&#123;PUBLIC_WWW&#125;</span> <span class="comment"># 将仓库文件拷贝到博客目录</span></div><div class="line"><span class="built_in">cd</span> ~</div><div class="line"><span class="built_in">exit</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash -l</span></span><br><span class="line">GIT_REPO=<span class="variable">$HOME</span>/repos/yuxiang.ren.git <span class="comment">#git仓库目录</span></span><br><span class="line">TMP_GIT_CLONE=<span class="variable">$HOME</span>/tmp/git/renyuxiang.ren <span class="comment">#git临时仓库</span></span><br><span class="line">PUBLIC_WWW=/var/www/yuxiang.ren <span class="comment">#博客的根目录 如果`wwww/` 下没有该文件夹 需要手动创建</span></span><br><span class="line">rm -rf <span class="variable">$&#123;TMP_GIT_CLONE&#125;</span> <span class="comment">#删除临时仓库</span></span><br><span class="line">git <span class="built_in">clone</span> <span class="variable">$GIT_REPO</span> <span class="variable">$TMP_GIT_CLONE</span> <span class="comment">#拷贝到临时仓库</span></span><br><span class="line">rm -rf <span class="variable">$&#123;PUBLIC_WWW&#125;</span>/* <span class="comment">#删除博客目录所有内容</span></span><br><span class="line">cp -rf <span class="variable">$&#123;TMP_GIT_CLONE&#125;</span>/* <span class="variable">$&#123;PUBLIC_WWW&#125;</span> <span class="comment"># 将仓库文件拷贝到博客目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>执行下面命令</p>
 <ul>
@@ -258,7 +258,7 @@
 <li><p><code>vi /etc/nginx/nginx.conf</code> (也可在本地编辑完上传到对应目录替换)</p>
 </li>
 <li><p>在<code>http</code> 里添加一下内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">	 listen 80; <span class="comment"># 监听80端口(http), 如需配置https 可自行百度</span></div><div class="line">     server_name yuxiang.ren www.yuxiang.ren; <span class="comment"># URL名字, 需要去域名服务商解析, 如何解析 自己百度</span></div><div class="line">	 root /var/www/yuxiang.ren/public/; <span class="comment"># 这个是网站的根目录</span></div><div class="line">	 index index.html index.htm index.txt; <span class="comment">#这个是让nginx默认读取的文件名</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	 listen 80; <span class="comment"># 监听80端口(http), 如需配置https 可自行百度</span></span><br><span class="line">     server_name yuxiang.ren www.yuxiang.ren; <span class="comment"># URL名字, 需要去域名服务商解析, 如何解析 自己百度</span></span><br><span class="line">	 root /var/www/yuxiang.ren/public/; <span class="comment"># 这个是网站的根目录</span></span><br><span class="line">	 index index.html index.htm index.txt; <span class="comment">#这个是让nginx默认读取的文件名</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>保存退出</p>
 </li>
@@ -312,10 +312,10 @@
 <li><p>进入刚刚从服务器clone下的<code>yuxiang.ren</code>文件夹</p>
 </li>
 <li><p>依次执行下面命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo init #初始化 一个博客环境, 需要下载相关文件,耐心等待</div><div class="line">hexo d -fg #部署</div><div class="line">hexo s #开启本地预览服务</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init #初始化 一个博客环境, 需要下载相关文件,耐心等待</span><br><span class="line">hexo d -fg #部署</span><br><span class="line">hexo s #开启本地预览服务</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>然后访问 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>  (本地的4000端口)如果看到网页表示Hexo配置成功</p>
+<p>然后访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>  (本地的4000端口)如果看到网页表示Hexo配置成功</p>
 </li>
 </ol>
 <h1 id="四-提交到服务器"><a href="#四-提交到服务器" class="headerlink" title="四. 提交到服务器"></a>四. 提交到服务器</h1><ol>
@@ -324,7 +324,7 @@
 <li><p>进入博客目录</p>
 </li>
 <li><p>执行以下命令更新</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add . #把需要更新的所有文件添加到本地仓库</div><div class="line">git commit -m "update message" # 提交到本地仓库</div><div class="line">git push # 提交到远程仓库 这里只服务器</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add . #把需要更新的所有文件添加到本地仓库</span><br><span class="line">git commit -m "update message" # 提交到本地仓库</span><br><span class="line">git push # 提交到远程仓库 这里只服务器</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果提示需要输入密码 输入服务器密码即可</p>
 </li>
@@ -342,8 +342,8 @@
 </ul>
 </li>
 </ol>
-<h1 id="五-博客的配置-主体更换"><a href="#五-博客的配置-主体更换" class="headerlink" title="五. 博客的配置, 主体更换,"></a>五. 博客的配置, 主体更换,</h1><p> 插件: <a href="https://hexo.io/plugins/" target="_blank" rel="external">https://hexo.io/plugins/</a></p>
-<p>主题: <a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a></p>
+<h1 id="五-博客的配置-主体更换"><a href="#五-博客的配置-主体更换" class="headerlink" title="五. 博客的配置, 主体更换,"></a>五. 博客的配置, 主体更换,</h1><p> 插件: <a href="https://hexo.io/plugins/" target="_blank" rel="noopener">https://hexo.io/plugins/</a></p>
+<p>主题: <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
 <p>……</p>
 <p>自行 百度/Google</p>
 <h1 id="六-发布文章"><a href="#六-发布文章" class="headerlink" title="六. 发布文章"></a>六. 发布文章</h1><ol>
@@ -352,17 +352,17 @@
 <li><p><code>hexo new 文章名字</code></p>
 </li>
 <li><p>编辑<code>/source/_posts/文章名字.md</code> 文件使用的是MarkDown语法</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">title: title  #文章的标题</div><div class="line">date: yyyy-mm-dd #创建时间</div><div class="line">   categories: category #分类</div><div class="line">   tags: tag #标签</div><div class="line"><span class="code">      </span></div><div class="line">   #多标签请这样写：tags: [tag1,tag2,tag3]</div><div class="line">   #或者这样写： </div><div class="line"><span class="code">    #tags: </span></div><div class="line"><span class="code">      #- tag1</span></div><div class="line"><span class="code">      #- tag2 </span></div><div class="line"><span class="code">      #- tag3 </span></div><div class="line">   ---  </div><div class="line"><span class="code">     </span></div><div class="line">   #正文</div></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">title: title  #文章的标题</span><br><span class="line">date: yyyy-mm-dd #创建时间</span><br><span class="line">   categories: category #分类</span><br><span class="line">   tags: tag #标签</span><br><span class="line"><span class="code">      </span></span><br><span class="line">   #多标签请这样写：tags: [tag1,tag2,tag3]</span><br><span class="line">   #或者这样写： </span><br><span class="line"><span class="code">    #tags: </span></span><br><span class="line"><span class="code">      #- tag1</span></span><br><span class="line"><span class="code">      #- tag2 </span></span><br><span class="line"><span class="code">      #- tag3 </span></span><br><span class="line">   ---  </span><br><span class="line"><span class="code">     </span></span><br><span class="line">   #正文</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>正文写完后可以再本地此时下</p>
 <ul>
 <li><code>hexo d -fg</code></li>
 <li><code>hexo s</code></li>
-<li>然后访问 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> </li>
+<li>然后访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> </li>
 </ul>
 </li>
 <li><p>提交到服务器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m "操作内容"</div><div class="line">git push</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m "操作内容"</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>每次这样提交会很麻烦可以使用<a href="/2017/08/25/hexo博客自动部署到多台服务器/" target="_brank">hexo博客自动部署到多台服务器</a>方法</p>
 </li>

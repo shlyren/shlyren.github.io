@@ -186,14 +186,14 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>官方教程: <a href="https://github.com/Neilpang/acme.sh/wiki/%E8%AF%B4%E6%98%8E" target="_blank" rel="external">https://github.com/Neilpang/acme.sh/wiki/%E8%AF%B4%E6%98%8E</a></p>
-<h3 id="1-安装-acme-sh"><a href="#1-安装-acme-sh" class="headerlink" title="1. 安装 acme.sh"></a>1. 安装 <strong>acme.sh</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl  https://get.acme.sh | sh</div></pre></td></tr></table></figure>
+      		<p>官方教程: <a href="https://github.com/Neilpang/acme.sh/wiki/%E8%AF%B4%E6%98%8E" target="_blank" rel="noopener">https://github.com/Neilpang/acme.sh/wiki/%E8%AF%B4%E6%98%8E</a></p>
+<h3 id="1-安装-acme-sh"><a href="#1-安装-acme-sh" class="headerlink" title="1. 安装 acme.sh"></a>1. 安装 <strong>acme.sh</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl  https://get.acme.sh | sh</span><br></pre></td></tr></table></figure>
 <p>​    会默认安装到<code>~/.acme.sh</code></p>
-<h3 id="2-进入安装目录"><a href="#2-进入安装目录" class="headerlink" title="2. 进入安装目录"></a>2. 进入安装目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/.acme.sh</div></pre></td></tr></table></figure>
+<h3 id="2-进入安装目录"><a href="#2-进入安装目录" class="headerlink" title="2. 进入安装目录"></a>2. 进入安装目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.acme.sh</span><br></pre></td></tr></table></figure>
 <h3 id="3-通过dns验证域名"><a href="#3-通过dns验证域名" class="headerlink" title="3. 通过dns验证域名"></a>3. 通过dns验证域名</h3><p>不同dns服务商申请apiKey:</p>
-<p><a href="https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md" target="_blank" rel="external">https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md</a></p>
-<h3 id="4-申请出证书"><a href="#4-申请出证书" class="headerlink" title="4. 申请出证书"></a>4. 申请出证书</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">acme.sh --issue --dns dns_ali -d shlyren.com -d *.shlyren.com</div></pre></td></tr></table></figure>
-<p>​    *<code>dns_ali</code>:表示的阿里云dns, 其他dns申请请访问<a href="https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md" target="_blank" rel="external">https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md</a></p>
+<p><a href="https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md" target="_blank" rel="noopener">https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md</a></p>
+<h3 id="4-申请出证书"><a href="#4-申请出证书" class="headerlink" title="4. 申请出证书"></a>4. 申请出证书</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acme.sh --issue --dns dns_ali -d shlyren.com -d *.shlyren.com</span><br></pre></td></tr></table></figure>
+<p>​    *<code>dns_ali</code>:表示的阿里云dns, 其他dns申请请访问<a href="https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md" target="_blank" rel="noopener">https://github.com/Neilpang/acme.sh/blob/master/dnsapi/README.md</a></p>
 <h3 id="5-配置"><a href="#5-配置" class="headerlink" title="5. 配置"></a>5. 配置</h3><p>申请成功后证书文件会保存到<code>~/.acme.sh/your dome</code>文件夹下</p>
 
             <div class="clearfix"></div>
