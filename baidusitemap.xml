@@ -4,8 +4,32 @@
 
     
   <url>
+    <loc>https://yuxiang.ren/2016/12/02/install-hexo-on-vps-and-update-with-git/</loc>
+    <lastmod>2018-07-24T07:48:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>在vps上安装hexo并且使用git更新</title>
+        <pubTime>2016-12-02T03:28:17.000Z</pubTime>
+        
+        <tag>命令</tag>
+         
+        <tag>Ubuntu</tag>
+         
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="教程" url="https://yuxiang.ren/categories/%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://yuxiang.ren/2017/08/25/%E5%9C%A8Nginx%E4%B8%8A%E9%83%A8%E7%BD%B2Let-s-Encrypt%E8%AF%81%E4%B9%A6/</loc>
-    <lastmod>2018-07-17T05:25:38.605Z</lastmod>
+    <lastmod>2018-07-17T05:25:38.000Z</lastmod>
     <data>
         <display>
         <title>在Nginx上部署Let's Encrypt证书</title>
@@ -26,16 +50,14 @@
 
     
   <url>
-    <loc>https://yuxiang.ren/2018/03/26/install-SSR-BBR-on-ubuntu/</loc>
+    <loc>https://yuxiang.ren/2018/04/28/deply-mysql-on-ubuntu/</loc>
     <lastmod>2018-05-11T08:00:54.795Z</lastmod>
     <data>
         <display>
-        <title>安装ShadowsocksR以及BBR加速</title>
-        <pubTime>2018-03-26T06:24:39.000Z</pubTime>
+        <title>在Ubuntu上部署msyql</title>
+        <pubTime>2018-04-28T02:42:18.000Z</pubTime>
         
         <tag>教程</tag>
-         
-        <tag>Shadowsocks</tag>
          
          
            
@@ -48,14 +70,16 @@
 
     
   <url>
-    <loc>https://yuxiang.ren/2018/04/28/deply-mysql-on-ubuntu/</loc>
-    <lastmod>2018-05-11T08:00:54.795Z</lastmod>
+    <loc>https://yuxiang.ren/2018/03/26/install-SSR-BBR-on-ubuntu/</loc>
+    <lastmod>2018-05-11T08:00:54.000Z</lastmod>
     <data>
         <display>
-        <title>在Ubuntu上部署msyql</title>
-        <pubTime>2018-04-28T02:42:18.000Z</pubTime>
+        <title>安装ShadowsocksR以及BBR加速</title>
+        <pubTime>2018-03-26T06:24:39.000Z</pubTime>
         
         <tag>教程</tag>
+         
+        <tag>Shadowsocks</tag>
          
          
            
@@ -261,9 +285,9 @@
         
         <tag>命令</tag>
          
-        <tag>MacOS</tag>
-         
         <tag>CocoaPods</tag>
+         
+        <tag>MacOS</tag>
          
          
            
@@ -595,30 +619,6 @@
         <pubTime>2016-12-02T01:40:39.000Z</pubTime>
         
         <tag>命令</tag>
-         
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="教程" url="https://yuxiang.ren/categories/%E6%95%99%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://yuxiang.ren/2016/12/02/install-hexo-on-vps-and-update-with-git/</loc>
-    <lastmod>2017-08-26T05:47:37.000Z</lastmod>
-    <data>
-        <display>
-        <title>在vps上安装hexo并且使用git更新</title>
-        <pubTime>2016-12-02T03:28:17.000Z</pubTime>
-        
-        <tag>命令</tag>
-         
-        <tag>Ubuntu</tag>
          
         <tag>Hexo</tag>
          

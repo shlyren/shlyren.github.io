@@ -277,7 +277,7 @@
 <li>用MarkDown编辑器编辑创建的文件(<code>/source/_posts/</code>下)</li>
 </ul>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">title: title  #文章的标题</span><br><span class="line">date: yyyy-mm-dd #创建时间</span><br><span class="line">categories: category #分类</span><br><span class="line">tags: tag #标签</span><br><span class="line">   </span><br><span class="line"><span class="section">#多标签请这样写：tags: [tag1,tag2,tag3]</span></span><br><span class="line"><span class="section">#或者这样写： </span></span><br><span class="line"> #tags: </span><br><span class="line">   #- tag1</span><br><span class="line">   #- tag2 </span><br><span class="line">   #- tag3 </span><br><span class="line">---  </span><br><span class="line">  </span><br><span class="line"><span class="section">#正文</span></span><br></pre></td></tr></table></figure>
-<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>进入网站根目录<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo d -fg</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"操作内容"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
+<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>进入网站根目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo d -<span class="built_in">fg</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"操作内容"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
@@ -411,8 +411,8 @@ $('#intro').find('img').each(function(){
           link.type = 'text/css';
           head.appendChild(link);
         };
-        getCss('https://fonts.googleapis.com/css?family=Montserrat:400,700');
-        getCss('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+        // getCss('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+        // getCss('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
       })();
       $('.flexslider').flexslider({
         animation: "fade",
