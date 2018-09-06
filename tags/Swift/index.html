@@ -343,27 +343,29 @@ $('#intro').find('img').each(function(){
 </script>
 
 
-<!-- github -->
-<div id="container"></div>
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    var gitment = new Gitment({
-        id: location.href, // 可选。默认为 location.href
-        owner: 'shlyren',
-        repo: 'gitment.yuxiang.ren',
-        oauth: {
-            client_id: 'df478fbaef5dcc6e5e43',
-            client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
-        },
-     })
-    //  //container为你要显示评论的id
-    gitment.render('container');
-</script>
-
 </body>
 </html>
-      link.type = 'text/css';
+class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      (function(){
+        console.log('font');
+        var getCss = function(path) {
+          var head = document.getElementsByTagName('head')[0];
+          link = document.createElement('link');
+          link.href = path;
+          link.rel = 'stylesheet';
+          link.type = 'text/css';
           head.appendChild(link);
         };
         // getCss('https://fonts.googleapis.com/css?family=Montserrat:400,700');
@@ -378,24 +380,6 @@ $('#intro').find('img').each(function(){
     });
 </script>
 
-
-<!-- github -->
-<div id="container"></div>
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    var gitment = new Gitment({
-        id: location.href, // 可选。默认为 location.href
-        owner: 'shlyren',
-        repo: 'gitment.yuxiang.ren',
-        oauth: {
-            client_id: 'df478fbaef5dcc6e5e43',
-            client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
-        },
-     })
-    //  //container为你要显示评论的id
-    gitment.render('container');
-</script>
 
 </body>
 </html>
