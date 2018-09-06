@@ -471,41 +471,36 @@
     </div>
 </section>
 
-<!--PC和WAP自适应版-->
-<!-- <div id="SOHUCS" ></div> 
-<script type="text/javascript"> 
-(function(){ 
-var appid = 'cyt9QnYLl'; 
-var conf = 'prod_c05600fbe8531e0e13048b26b16f3148'; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); 
-</script> -->
 
-<!-- github -->
-<div id="container"></div>
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 
-<style>
-    .gitment-root-container {
-        margin: 20px;
-    }
-</style>
-<script>
+    <!-- github -->
+    <div id="container"></div>
+    <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+    <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 
-    var gitment = new Gitment({
-        id: 'Sun Apr 24 2016 15:34:28 GMT+0800', // 可选。默认为 location.href
-        owner: 'shlyren',
-        repo: 'gitment.yuxiang.ren',
-        oauth: {
-            client_id: 'df478fbaef5dcc6e5e43',
-            client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
-        },
-     })
-    //  //container为你要显示评论的id
-    gitment.render('container');
-</script>
+    <script>
+        
+        window.onload = function () {
+            $('.gitment-root-container').css('margin', '20px');
+        }
+        var gitment = new Gitment({
+            id: 'Sun Apr 24 2016 15:34:28 GMT+0800', // 可选。默认为 location.href, location.href 长度过长会导致 Initialize Comments 时提示 Error: Validation Failed
+            owner: 'shlyren',
+            repo: 'gitment.yuxiang.ren',
+            oauth: {
+                client_id: 'df478fbaef5dcc6e5e43',
+                client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
+            },
+        })
+        //  //container为你要显示评论的id
+        gitment.render('container');
+    </script>
+
+
+
+
+
+
 
       
 <!-- ============================ Footer =========================== -->
