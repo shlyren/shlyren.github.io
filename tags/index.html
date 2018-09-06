@@ -232,10 +232,6 @@
     <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 
     <script>
-        
-        window.onload = function () {
-            $('.gitment-root-container').css('margin', '20px');
-        }
         var gitment = new Gitment({
             id: 'tags', // 可选。默认为 location.href, location.href 长度过长会导致 Initialize Comments 时提示 Error: Validation Failed
             owner: 'shlyren',
@@ -245,7 +241,7 @@
                 client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
             },
         })
-        //  //container为你要显示评论的id
+        //container为你要显示评论的id
         gitment.render('container');
     </script>
 
