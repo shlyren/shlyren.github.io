@@ -234,9 +234,17 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 <div id="container"></div>
 <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+<style>
+    .gitment-root-container {
+        margin: 20px;
+    }
+</style>
 <script>
+    // var name = window.location.pathname.spilt("/");
+
     var gitment = new Gitment({
-        id: location.href, // 可选。默认为 location.href
+        // id: name[name.length - 2], // 可选。默认为 location.href
         owner: 'shlyren',
         repo: 'gitment.yuxiang.ren',
         oauth: {
