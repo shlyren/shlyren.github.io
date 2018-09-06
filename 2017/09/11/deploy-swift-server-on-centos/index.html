@@ -251,33 +251,34 @@
 
 
 </div>
+        
+            <!-- github -->
+            <div id="container"></div>
+            <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+            <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+        
+            <script>
+                
+                window.onload = function () {
+                    $('.gitment-root-container').css('margin', '20px');
+                }
+                var gitment = new Gitment({
+                    id: 'deploy swift server on centos7.3', // 可选。默认为 location.href, location.href 长度过长会导致 Initialize Comments 时提示 Error: Validation Failed
+                    owner: 'shlyren',
+                    repo: 'shlyren.github.io',
+                    oauth: {
+                        client_id: 'df478fbaef5dcc6e5e43',
+                        client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
+                    },
+                })
+                //  //container为你要显示评论的id
+                gitment.render('container');
+            </script>
+        
     </div>
 </section>
 
 
-
-    <!-- github -->
-    <div id="container"></div>
-    <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-    <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-
-    <script>
-        
-        window.onload = function () {
-            $('.gitment-root-container').css('margin', '20px');
-        }
-        var gitment = new Gitment({
-            id: 'deploy swift server on centos7.3', // 可选。默认为 location.href, location.href 长度过长会导致 Initialize Comments 时提示 Error: Validation Failed
-            owner: 'shlyren',
-            repo: 'shlyren.github.io',
-            oauth: {
-                client_id: 'df478fbaef5dcc6e5e43',
-                client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
-            },
-        })
-        //  //container为你要显示评论的id
-        gitment.render('container');
-    </script>
 
 
 
