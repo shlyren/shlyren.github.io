@@ -67,7 +67,7 @@
 
     <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
         <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
-            <img src="/img/close.png" alt="Close"/>
+            <img src="/img/close.png" alt="Close">
         </div>
         <!-- Lists in Slidebars -->
         <ul class="sb-menu">
@@ -92,6 +92,10 @@
 				    <li><a href="/categories/教程/" class="animsition-link">教程<small>(20)</small></a></li>
 				    
 				    <li><a href="/categories/杂碎/" class="animsition-link">杂碎<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/笔记/" class="animsition-link">笔记<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/笔记，OC/" class="animsition-link">笔记，OC<small>(0)</small></a></li>
 				    
 				</ul>
         	</li>
@@ -129,7 +133,7 @@
                     <!-- Nav logo -->
                     <div class="logo">
                         <a href="/" title="Logo" class="animsition-link">
-                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                         <img src="/img/logo.png" alt="Logo" width="35px;"> 
                         </a>
                     </div>
                     <!-- // Nav logo -->
@@ -168,7 +172,7 @@
 
         <!-- ============================ Header & Logo bar =========================== -->
 
-
+</div>
       <!-- ============================ Hero Image =========================== -->
 
 <section id="hero" class="scrollme">
@@ -207,6 +211,47 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2019/04/10/KVO/">KVO及KVC</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2019-04-10T00:47:24.148Z" itemprop="datePublished">
+          2019-04-10
+      </time>
+    
+    
+    | 
+    <a href="/tags/笔记/">笔记</a>,
+    
+    <a href="/tags/OC/">OC</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p class="index-excerpt">
+                      
+                        [TOC]
+KVO
+KVO全程为key-value observing，即键值监听。通常用于监听实例对象某个属性值的变化的。
+
+原理如果某个对象使用了KVO监听，那么这个实例对象的isa指针指向NSKVONotifying_*这个类对象。这个类是由runtime动态生成的一个类，并且这个类的suppclass指针指向添加KVO监听的实例对象的类对象。在这类中，他实现了所监听的属性的setter方法，并在此方法中调用了_NSSetIntV
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2019/04/10/KVO/">阅读全文...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2018/04/28/deply-mysql-on-ubuntu/">在Ubuntu上部署msyql</a></h3>
                     <span>
                         <span class="post-meta">
@@ -216,7 +261,7 @@
     
     
     | 
-    <a href='/tags/教程/'>教程</a>
+    <a href="/tags/教程/">教程</a>
     
     
 </span>
@@ -261,9 +306,9 @@
     
     
     | 
-    <a href='/tags/教程/'>教程</a>,
+    <a href="/tags/教程/">教程</a>,
     
-    <a href='/tags/Shadowsocks/'>Shadowsocks</a>
+    <a href="/tags/Shadowsocks/">Shadowsocks</a>
     
     
 </span>
@@ -335,7 +380,7 @@ https://github.com/Neilpang/acme.
     
     
     | 
-    <a href='/tags/教程/'>教程</a>
+    <a href="/tags/教程/">教程</a>
     
     
 </span>
@@ -437,7 +482,7 @@ App-Prefs:root=NOTIFICAT
     
     
     | 
-    <a href='/tags/swift/'>swift</a>
+    <a href="/tags/swift/">swift</a>
     
     
 </span>
@@ -480,9 +525,9 @@ App-Prefs:root=NOTIFICAT
     
     
     | 
-    <a href='/tags/命令/'>命令</a>,
+    <a href="/tags/命令/">命令</a>,
     
-    <a href='/tags/Ubuntu/'>Ubuntu</a>
+    <a href="/tags/Ubuntu/">Ubuntu</a>
     
     
 </span>
@@ -531,9 +576,9 @@ clone Let’s Encrypt 源码
     
     
     | 
-    <a href='/tags/命令/'>命令</a>,
+    <a href="/tags/命令/">命令</a>,
     
-    <a href='/tags/Hexo/'>Hexo</a>
+    <a href="/tags/Hexo/">Hexo</a>
     
     
 </span>
@@ -572,7 +617,7 @@ git提交到多个仓库
     
     
     | 
-    <a href='/tags/Objective-C/'>Objective-C</a>
+    <a href="/tags/Objective-C/">Objective-C</a>
     
     
 </span>
@@ -591,48 +636,6 @@ git提交到多个仓库
                     
                     <p class="pull-right readMore">
                         <a href="/2017/08/10/ViewController滚动标题/">阅读全文...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/07/27/常用命令/">常用命令</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-07-27T06:21:44.000Z" itemprop="datePublished">
-          2017-07-27
-      </time>
-    
-    
-    | 
-    <a href='/tags/命令/'>命令</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p class="index-excerpt">
-                      
-                        
-ubuntu编译c++:  g++ -std=gnu++11 main.cpp -o main -lpthread
-后台 nohup
-查找  ps -ef|grep &lt;command name&gt;
-杀死进程 kill -9 pid
-给脚本文件运行权限 chmod 755 ./文件 名
-清空废纸篓 sudo rm -rf ~/.Trash/
-显示Mac隐藏文件的命令：defaults write com.apple.finde
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/07/27/常用命令/">阅读全文...</a>
                     </p>
                     
                 </div>
@@ -664,7 +667,7 @@ ubuntu编译c++:  g++ -std=gnu++11 main.cpp -o main -lpthread
     <div class="container" style="margin-top: -20px">
             <div class="copy">
                 <p class="copyRights">
-                    &copy; 2016<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By <a class='theme-link' href='mailto:mail@yuxiang.ren', target='_blank'>任玉祥</a>. All Rights Reserved.
+                    &copy; 2016<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By <a class="theme-link" href="mailto:mail@yuxiang.ren" , target="_blank">任玉祥</a>. All Rights Reserved.
                 </p>
                 
                 <p class="copyRights">
@@ -673,7 +676,7 @@ ubuntu编译c++:  g++ -std=gnu++11 main.cpp -o main -lpthread
                     &nbsp;|&nbsp;
                     <a href="http://www.miitbeian.gov.cn" target="_blank"> 浙ICP备17016497号-1 </a>
                     &nbsp;|&nbsp;
-                    在Github上查看网站 <a class="theme-link" href='https://github.com/shlyren/shlyren.github.io', target='_blank'>源码</a>
+                    在Github上查看网站 <a class="theme-link" href="https://github.com/shlyren/shlyren.github.io" , target="_blank">源码</a>
                     <!-- &nbsp;|&nbsp;
                     <script type="text/javascript" src="https://s95.cnzz.com/z_stat.php?id=1259844339&web_id=1259844339"></script>  -->
                 </p>

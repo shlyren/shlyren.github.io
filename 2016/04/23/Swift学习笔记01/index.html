@@ -67,7 +67,7 @@
 
     <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
         <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
-            <img src="/img/close.png" alt="Close"/>
+            <img src="/img/close.png" alt="Close">
         </div>
         <!-- Lists in Slidebars -->
         <ul class="sb-menu">
@@ -92,6 +92,10 @@
 				    <li><a href="/categories/教程/" class="animsition-link">教程<small>(20)</small></a></li>
 				    
 				    <li><a href="/categories/杂碎/" class="animsition-link">杂碎<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/笔记/" class="animsition-link">笔记<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/笔记，OC/" class="animsition-link">笔记，OC<small>(0)</small></a></li>
 				    
 				</ul>
         	</li>
@@ -129,7 +133,7 @@
                     <!-- Nav logo -->
                     <div class="logo">
                         <a href="/" title="Logo" class="animsition-link">
-                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                         <img src="/img/logo.png" alt="Logo" width="35px;"> 
                         </a>
                     </div>
                     <!-- // Nav logo -->
@@ -168,7 +172,7 @@
 
         <!-- ============================ Header & Logo bar =========================== -->
 
-
+</div>
       
 
 
@@ -183,7 +187,7 @@
     
     
     | 
-    <a href='/tags/Swift/'>Swift</a>
+    <a href="/tags/Swift/">Swift</a>
     
     
 </span>
@@ -205,13 +209,13 @@
 <li>整型:<code>Int</code></li>
 <li>浮点型:<code>Double</code></li>
 </ul>
-<ol>
+<ol start="2">
 <li>类型推导</li>
 </ol>
 <ul>
 <li>如果定义一个标识符时,有直接赋值, 那么可以通过赋值的类型推导出标识符的类型.</li>
 </ul>
-<ol>
+<ol start="2">
 <li>基本运算</li>
 </ol>
 <ul>
@@ -224,17 +228,17 @@
 <li>if后面的<strong>()</strong>可以省略</li>
 <li>没有非0即真的概念,必须有明确的Bool值(flase/true)</li>
 </ul>
-<ol>
+<ol start="2">
 <li>三目运算符</li>
 </ol>
 <ul>
 <li>与OC使用一致</li>
 </ul>
-<ol>
+<ol start="3">
 <li><code>guard</code>的使用</li>
 </ol>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">guard</span> 条件语句 <span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">// 条件不满足代码</span></span><br><span class="line">    <span class="keyword">break</span>/<span class="keyword">return</span>/<span class="keyword">continue</span>/<span class="keyword">throw</span></span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">// 条件满足代码</span></span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="4">
 <li>switch使用</li>
 </ol>
 <ul>
@@ -263,7 +267,7 @@
   <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="number">_</span> <span class="number">0</span>..&lt;<span class="number">10</span> &#123;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol>
+<ol start="2">
 <li>while/dowhile循环</li>
 </ol>
 <ul>
@@ -277,17 +281,17 @@
 <li>定义可变字符串<code>var str = &quot;string&quot;</code></li>
 <li>定义不可变字符串<code>let str = &quot;string&quot;</code></li>
 </ul>
-<ol>
+<ol start="2">
 <li>获取字符串长度</li>
 </ol>
 <ul>
 <li><code>str.characters.count</code></li>
 </ul>
-<ol>
+<ol start="3">
 <li>遍历字符串</li>
 </ol>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">c</span> <span class="keyword">in</span> str.characters &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">c</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="4">
 <li>字符串拼接</li>
 </ol>
 <ul>
@@ -295,7 +299,7 @@
 <li>字符串与标识符之间:<code>\(age)</code></li>
 <li>字符串格式化:<code>String(format:&quot;%d %d&quot;,\ argments:[age1,age2])</code></li>
 </ul>
-<ol>
+<ol start="5">
 <li>字符串截取</li>
 </ol>
 <ul>
@@ -309,12 +313,12 @@
 <h3 id="六、数组"><a href="#六、数组" class="headerlink" title="六、数组"></a>六、数组</h3><pre><code>1. 定义数组
 </code></pre><ul>
 <li>不可变数组:<code>let arr = [&quot;www&quot;, &quot;shlyren&quot;]</code></li>
-<li>可遍数组:<code>var arrM = [String]()</code><ol>
+<li>可遍数组:<code>var arrM = [String]()</code><ol start="2">
 <li>遍历数组</li>
 </ol>
 </li>
 <li><code>for value in arr{print(valur)}</code></li>
-<li><code>for (index, value) in array.enumerate() {print(index); print(value)}</code><ol>
+<li><code>for (index, value) in array.enumerate() {print(index); print(value)}</code><ol start="3">
 <li>数组的合并</li>
 </ol>
 </li>
@@ -327,7 +331,7 @@
 <li>不可变字典:<code>let dict = [&quot;name&quot; : &quot;ren&quot;]</code></li>
 <li>可变字典:<code>var dictM = [String : NSObject]()</code></li>
 </ul>
-<ol>
+<ol start="2">
 <li>遍历字典</li>
 </ol>
 <ul>
@@ -335,7 +339,7 @@
 <li><code>for value in dict.values {}</code></li>
 <li><code>for (key, value) in dict {}</code></li>
 </ul>
-<ol>
+<ol start="3">
 <li>合并字典</li>
 </ol>
 <ul>
@@ -356,19 +360,19 @@
 <li><code>var name : Optional&lt;String&gt; = nil</code></li>
 <li><code>var name : String? = nil</code></li>
 </ul>
-<ol>
+<ol start="2">
 <li>给可选类型赋值</li>
 </ol>
 <ul>
 <li><code>name = “renyuxaing”</code></li>
 </ul>
-<ol>
+<ol start="3">
 <li>从可选类型取值</li>
 </ol>
 <ul>
 <li><code>name!</code> 强制解包</li>
 </ul>
-<ol>
+<ol start="4">
 <li>可选类型注意: 如果可选类型中没有值,强制解包会崩溃</li>
 <li>可选绑定</li>
 </ol>
@@ -425,7 +429,7 @@
                 client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
             },
         })
-        //  //container为你要显示评论的id
+        //container为你要显示评论的id
         gitment.render('container');
     </script>
 
@@ -445,7 +449,7 @@
     <div class="container" style="margin-top: -20px">
             <div class="copy">
                 <p class="copyRights">
-                    &copy; 2016<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By <a class='theme-link' href='mailto:mail@yuxiang.ren', target='_blank'>任玉祥</a>. All Rights Reserved.
+                    &copy; 2016<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By <a class="theme-link" href="mailto:mail@yuxiang.ren" , target="_blank">任玉祥</a>. All Rights Reserved.
                 </p>
                 
                 <p class="copyRights">
@@ -454,7 +458,7 @@
                     &nbsp;|&nbsp;
                     <a href="http://www.miitbeian.gov.cn" target="_blank"> 浙ICP备17016497号-1 </a>
                     &nbsp;|&nbsp;
-                    在Github上查看网站 <a class="theme-link" href='https://github.com/shlyren/shlyren.github.io', target='_blank'>源码</a>
+                    在Github上查看网站 <a class="theme-link" href="https://github.com/shlyren/shlyren.github.io" , target="_blank">源码</a>
                     <!-- &nbsp;|&nbsp;
                     <script type="text/javascript" src="https://s95.cnzz.com/z_stat.php?id=1259844339&web_id=1259844339"></script>  -->
                 </p>

@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yuxiang.ren/2019/04/10/KVO/</loc>
+    
+    <lastmod>2019-04-12T08:41:34.902Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yuxiang.ren/about/index.html</loc>
     
-    <lastmod>2018-09-17T10:15:28.282Z</lastmod>
+    <lastmod>2018-09-17T10:15:28.000Z</lastmod>
     
   </url>
   
@@ -23,14 +30,14 @@
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2018/04/28/deply-mysql-on-ubuntu/</loc>
+    <loc>https://yuxiang.ren/2018/03/26/install-SSR-BBR-on-ubuntu/</loc>
     
-    <lastmod>2018-05-11T08:00:54.795Z</lastmod>
+    <lastmod>2018-05-11T08:00:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2018/03/26/install-SSR-BBR-on-ubuntu/</loc>
+    <loc>https://yuxiang.ren/2018/04/28/deply-mysql-on-ubuntu/</loc>
     
     <lastmod>2018-05-11T08:00:54.000Z</lastmod>
     
@@ -39,7 +46,7 @@
   <url>
     <loc>https://yuxiang.ren/2018/03/21/let-s-Encrypt-use-Wildcard/</loc>
     
-    <lastmod>2018-03-21T07:54:53.879Z</lastmod>
+    <lastmod>2018-03-21T07:54:53.000Z</lastmod>
     
   </url>
   

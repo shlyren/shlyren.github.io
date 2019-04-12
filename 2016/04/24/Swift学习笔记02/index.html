@@ -67,7 +67,7 @@
 
     <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
         <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
-            <img src="/img/close.png" alt="Close"/>
+            <img src="/img/close.png" alt="Close">
         </div>
         <!-- Lists in Slidebars -->
         <ul class="sb-menu">
@@ -92,6 +92,10 @@
 				    <li><a href="/categories/教程/" class="animsition-link">教程<small>(20)</small></a></li>
 				    
 				    <li><a href="/categories/杂碎/" class="animsition-link">杂碎<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/笔记/" class="animsition-link">笔记<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/笔记，OC/" class="animsition-link">笔记，OC<small>(0)</small></a></li>
 				    
 				</ul>
         	</li>
@@ -129,7 +133,7 @@
                     <!-- Nav logo -->
                     <div class="logo">
                         <a href="/" title="Logo" class="animsition-link">
-                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                         <img src="/img/logo.png" alt="Logo" width="35px;"> 
                         </a>
                     </div>
                     <!-- // Nav logo -->
@@ -168,7 +172,7 @@
 
         <!-- ============================ Header & Logo bar =========================== -->
 
-
+</div>
       
 
 
@@ -183,7 +187,7 @@
     
     
     | 
-    <a href='/tags/Swift/'>Swift</a>
+    <a href="/tags/Swift/">Swift</a>
     
     
 </span>
@@ -384,7 +388,7 @@
 </ul>
 </li>
 <li><p>监听的方式如下:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> : <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> name : <span class="type">String</span>? &#123;</span><br><span class="line">       <span class="comment">// 可以给newValue自定义名称</span></span><br><span class="line">       <span class="keyword">willSet</span> (new)&#123; <span class="comment">// 属性即将改变,还未改变时会调用的方法</span></span><br><span class="line">           <span class="comment">// 在该方法中有一个默认的系统属性newValue,用于存储值</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 可以给oldValue自定义名称</span></span><br><span class="line">       <span class="keyword">didSet</span> (old) &#123; <span class="comment">// 属性值已经改变了,会调用的方法</span></span><br><span class="line">           <span class="comment">// 在该方法中有一个默认的系统属性oldValue,用于存储旧值</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> : <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> name : <span class="type">String?</span> &#123;</span><br><span class="line">       <span class="comment">// 可以给newValue自定义名称</span></span><br><span class="line">       <span class="keyword">willSet</span> (new)&#123; <span class="comment">// 属性即将改变,还未改变时会调用的方法</span></span><br><span class="line">           <span class="comment">// 在该方法中有一个默认的系统属性newValue,用于存储值</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">// 可以给oldValue自定义名称</span></span><br><span class="line">       <span class="keyword">didSet</span> (old) &#123; <span class="comment">// 属性值已经改变了,会调用的方法</span></span><br><span class="line">           <span class="comment">// 在该方法中有一个默认的系统属性oldValue,用于存储旧值</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -432,7 +436,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>: <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">     <span class="comment">// 结构体或者类的类型,必须是可选类型.因为不能保证一定会赋值</span></span><br><span class="line">     <span class="keyword">var</span> name : <span class="type">String</span>?</span><br><span class="line"> </span><br><span class="line">     <span class="comment">// 基本数据类型不能是可选类型,否则KVC无法转化</span></span><br><span class="line">     <span class="keyword">var</span> age : <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line"> </span><br><span class="line">     <span class="comment">// 自定义构造函数,会覆盖init()函数</span></span><br><span class="line">     <span class="keyword">init</span>(dict : [<span class="type">String</span> : <span class="type">NSObject</span>]) &#123;</span><br><span class="line">         <span class="comment">// 必须先初始化对象</span></span><br><span class="line">         <span class="keyword">super</span>.<span class="keyword">init</span>()</span><br><span class="line"> </span><br><span class="line">         <span class="comment">// 调用对象的KVC方法字典转模型</span></span><br><span class="line">         setValuesForKeysWithDictionary(dict)</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 创建一个Person对象</span></span><br><span class="line"><span class="keyword">let</span> dict = [<span class="string">"name"</span> : <span class="string">"why"</span>, <span class="string">"age"</span> : <span class="number">18</span>]</span><br><span class="line"><span class="keyword">let</span> p = <span class="type">Person</span>(dict: dict)</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>: <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">     <span class="comment">// 结构体或者类的类型,必须是可选类型.因为不能保证一定会赋值</span></span><br><span class="line">     <span class="keyword">var</span> name : <span class="type">String?</span></span><br><span class="line"> </span><br><span class="line">     <span class="comment">// 基本数据类型不能是可选类型,否则KVC无法转化</span></span><br><span class="line">     <span class="keyword">var</span> age : <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line"> </span><br><span class="line">     <span class="comment">// 自定义构造函数,会覆盖init()函数</span></span><br><span class="line">     <span class="keyword">init</span>(dict : [<span class="type">String</span> : <span class="type">NSObject</span>]) &#123;</span><br><span class="line">         <span class="comment">// 必须先初始化对象</span></span><br><span class="line">         <span class="keyword">super</span>.<span class="keyword">init</span>()</span><br><span class="line"> </span><br><span class="line">         <span class="comment">// 调用对象的KVC方法字典转模型</span></span><br><span class="line">         setValuesForKeysWithDictionary(dict)</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 创建一个Person对象</span></span><br><span class="line"><span class="keyword">let</span> dict = [<span class="string">"name"</span> : <span class="string">"why"</span>, <span class="string">"age"</span> : <span class="number">18</span>]</span><br><span class="line"><span class="keyword">let</span> p = <span class="type">Person</span>(dict: dict)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -489,7 +493,7 @@
                 client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
             },
         })
-        //  //container为你要显示评论的id
+        //container为你要显示评论的id
         gitment.render('container');
     </script>
 
@@ -509,7 +513,7 @@
     <div class="container" style="margin-top: -20px">
             <div class="copy">
                 <p class="copyRights">
-                    &copy; 2016<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By <a class='theme-link' href='mailto:mail@yuxiang.ren', target='_blank'>任玉祥</a>. All Rights Reserved.
+                    &copy; 2016<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By <a class="theme-link" href="mailto:mail@yuxiang.ren" , target="_blank">任玉祥</a>. All Rights Reserved.
                 </p>
                 
                 <p class="copyRights">
@@ -518,7 +522,7 @@
                     &nbsp;|&nbsp;
                     <a href="http://www.miitbeian.gov.cn" target="_blank"> 浙ICP备17016497号-1 </a>
                     &nbsp;|&nbsp;
-                    在Github上查看网站 <a class="theme-link" href='https://github.com/shlyren/shlyren.github.io', target='_blank'>源码</a>
+                    在Github上查看网站 <a class="theme-link" href="https://github.com/shlyren/shlyren.github.io" , target="_blank">源码</a>
                     <!-- &nbsp;|&nbsp;
                     <script type="text/javascript" src="https://s95.cnzz.com/z_stat.php?id=1259844339&web_id=1259844339"></script>  -->
                 </p>

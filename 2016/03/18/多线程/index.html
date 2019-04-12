@@ -67,7 +67,7 @@
 
     <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
         <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
-            <img src="/img/close.png" alt="Close"/>
+            <img src="/img/close.png" alt="Close">
         </div>
         <!-- Lists in Slidebars -->
         <ul class="sb-menu">
@@ -92,6 +92,10 @@
 				    <li><a href="/categories/教程/" class="animsition-link">教程<small>(20)</small></a></li>
 				    
 				    <li><a href="/categories/杂碎/" class="animsition-link">杂碎<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/笔记/" class="animsition-link">笔记<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/笔记，OC/" class="animsition-link">笔记，OC<small>(0)</small></a></li>
 				    
 				</ul>
         	</li>
@@ -129,7 +133,7 @@
                     <!-- Nav logo -->
                     <div class="logo">
                         <a href="/" title="Logo" class="animsition-link">
-                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                         <img src="/img/logo.png" alt="Logo" width="35px;"> 
                         </a>
                     </div>
                     <!-- // Nav logo -->
@@ -168,7 +172,7 @@
 
         <!-- ============================ Header & Logo bar =========================== -->
 
-
+</div>
       
 
 
@@ -183,7 +187,7 @@
     
     
     | 
-    <a href='/tags/Objective-C/'>Objective-C</a>
+    <a href="/tags/Objective-C/">Objective-C</a>
     
     
 </span>
@@ -200,7 +204,7 @@
 <li>同步: 只能在当前线程中执行任务, 不具备开启新线程的能力</li>
 <li>异步: 可以在新的线程中执行任务, 具备开启新线程的能力</li>
 </ul>
-<ol>
+<ol start="2">
 <li>并发金和串行的只要影响: 任务的执行方式</li>
 </ol>
 <ul>
@@ -223,7 +227,7 @@
 <h2 id="四、NSOperation"><a href="#四、NSOperation" class="headerlink" title="四、NSOperation"></a>四、NSOperation</h2><ol>
 <li>相关概念<br>NSOperation是对<strong>GCD的包装</strong><br>两个核心概念[<strong>队列</strong>+<strong>操作</strong>]</li>
 <li>基本使用<br>  <code>NSOperation</code>本身是抽象类,只能只有他的子类<pre><code>三个子类分别是:`NSBlockOperation`,`NSInvocationOperation`,以及自定义继承自`NSOperation`的类
-</code></pre><code>NSOperation</code>和<code>NSOperationQueue</code>结合使用实现多线程开发<ol>
+</code></pre><code>NSOperation</code>和<code>NSOperationQueue</code>结合使用实现多线程开发<ol start="3">
 <li><code>NSoperationQueue</code></li>
 </ol>
 <ul>
@@ -243,7 +247,7 @@
 <li>在GCD中,任务用快(<code>block</code>)来表示, 而块是轻量级的数据结构;相反操作队列中的[操作]<code>NSOperation</code>则是个更加重量级的OC对象</li>
 <li>具体该使用<code>GCD</code>还是使用<code>NSOperation</code>需要看具体情况</li>
 </ul>
-<ol>
+<ol start="2">
 <li><code>NSOperation</code>和<code>NSoperationQueue</code>相对<code>GCD</code>的好处</li>
 </ol>
 <ul>
@@ -260,7 +264,7 @@
 <li>单利模式<br> 在程序运行过程中,一个类只有一个实例</li>
 <li>使用场合<br> 在整个应用程序中,功效一份资源(这份资源只需要创建初始化一次)</li>
 </ul>
-<ol>
+<ol start="2">
 <li>ARC实现单利<ul>
 <li>在类的内部提供一个<code>static</code>修饰的全局变量</li>
 <li>提供一个类方法, 方便外接访问</li>
@@ -308,7 +312,7 @@
                 client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
             },
         })
-        //  //container为你要显示评论的id
+        //container为你要显示评论的id
         gitment.render('container');
     </script>
 
@@ -328,7 +332,7 @@
     <div class="container" style="margin-top: -20px">
             <div class="copy">
                 <p class="copyRights">
-                    &copy; 2016<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By <a class='theme-link' href='mailto:mail@yuxiang.ren', target='_blank'>任玉祥</a>. All Rights Reserved.
+                    &copy; 2016<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By <a class="theme-link" href="mailto:mail@yuxiang.ren" , target="_blank">任玉祥</a>. All Rights Reserved.
                 </p>
                 
                 <p class="copyRights">
@@ -337,7 +341,7 @@
                     &nbsp;|&nbsp;
                     <a href="http://www.miitbeian.gov.cn" target="_blank"> 浙ICP备17016497号-1 </a>
                     &nbsp;|&nbsp;
-                    在Github上查看网站 <a class="theme-link" href='https://github.com/shlyren/shlyren.github.io', target='_blank'>源码</a>
+                    在Github上查看网站 <a class="theme-link" href="https://github.com/shlyren/shlyren.github.io" , target="_blank">源码</a>
                     <!-- &nbsp;|&nbsp;
                     <script type="text/javascript" src="https://s95.cnzz.com/z_stat.php?id=1259844339&web_id=1259844339"></script>  -->
                 </p>

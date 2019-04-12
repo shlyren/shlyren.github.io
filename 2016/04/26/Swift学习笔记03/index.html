@@ -67,7 +67,7 @@
 
     <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
         <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
-            <img src="/img/close.png" alt="Close"/>
+            <img src="/img/close.png" alt="Close">
         </div>
         <!-- Lists in Slidebars -->
         <ul class="sb-menu">
@@ -92,6 +92,10 @@
 				    <li><a href="/categories/教程/" class="animsition-link">教程<small>(20)</small></a></li>
 				    
 				    <li><a href="/categories/杂碎/" class="animsition-link">杂碎<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/笔记/" class="animsition-link">笔记<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/笔记，OC/" class="animsition-link">笔记，OC<small>(0)</small></a></li>
 				    
 				</ul>
         	</li>
@@ -129,7 +133,7 @@
                     <!-- Nav logo -->
                     <div class="logo">
                         <a href="/" title="Logo" class="animsition-link">
-                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                         <img src="/img/logo.png" alt="Logo" width="35px;"> 
                         </a>
                     </div>
                     <!-- // Nav logo -->
@@ -168,7 +172,7 @@
 
         <!-- ============================ Header & Logo bar =========================== -->
 
-
+</div>
       
 
 
@@ -183,7 +187,7 @@
     
     
     | 
-    <a href='/tags/Swift/'>Swift</a>
+    <a href="/tags/Swift/">Swift</a>
     
     
 </span>
@@ -261,7 +265,7 @@
 <h3 id="2-协议的基本使用"><a href="#2-协议的基本使用" class="headerlink" title="2. 协议的基本使用"></a>2. 协议的基本使用</h3><ul>
 <li>定义协议和遵守协议</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.定义协议</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SportProtocol</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">playBasketball</span><span class="params">()</span></span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">playFootball</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2.遵守协议 注意:默认情况下在swift中所有的协议方法都是必须实现的,如果不实现,则编译器会报错</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> : <span class="title">SportProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name : <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">var</span> age : <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 实现协议中的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">playBasketball</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"人在打篮球"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">playFootball</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"人在踢足球"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.定义协议</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SportProtocol</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">playBasketball</span><span class="params">()</span></span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">playFootball</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2.遵守协议 注意:默认情况下在swift中所有的协议方法都是必须实现的,如果不实现,则编译器会报错</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> : <span class="title">SportProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name : <span class="type">String?</span></span><br><span class="line">    <span class="keyword">var</span> age : <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 实现协议中的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">playBasketball</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"人在打篮球"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">playFootball</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"人在踢足球"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>协议之间的继承</li>
 </ul>
@@ -271,7 +275,7 @@
 <li>Swift中的协议默认为必须实现,如果不实现则直接报错</li>
 <li>要想跟OC一样将协议中的方法设置为可选,则需要特殊操作</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.定义协议</span></span><br><span class="line"><span class="meta">@objc</span> </span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SportProtocol</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">playBasketball</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">optional</span> <span class="function"><span class="keyword">func</span> <span class="title">playFootball</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.遵守协议</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> : <span class="title">SportProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name : <span class="type">String</span>?</span><br><span class="line">    <span class="keyword">var</span> age : <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 实现协议中的方法</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">playBasketball</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"人在打篮球"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.定义协议</span></span><br><span class="line"><span class="meta">@objc</span> </span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SportProtocol</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">playBasketball</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">optional</span> <span class="function"><span class="keyword">func</span> <span class="title">playFootball</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.遵守协议</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> : <span class="title">SportProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name : <span class="type">String?</span></span><br><span class="line">    <span class="keyword">var</span> age : <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 实现协议中的方法</span></span><br><span class="line">    <span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">playBasketball</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"人在打篮球"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="五、闭包"><a href="#五、闭包" class="headerlink" title="五、闭包"></a>五、闭包</h2><h3 id="1-闭包的介绍"><a href="#1-闭包的介绍" class="headerlink" title="1. 闭包的介绍"></a>1. 闭包的介绍</h3><ul>
 <li>闭包和OC中的block非常相似<ul>
@@ -284,7 +288,7 @@
 <h3 id="2-闭包的写法"><a href="#2-闭包的写法" class="headerlink" title="2. 闭包的写法"></a>2. 闭包的写法</h3><ul>
 <li>类型:<strong>(形参列表)-&gt;(返回值)</strong></li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">(finished : <span class="params">(parameter : String)</span></span></span> -&gt; ())&#123;</span><br><span class="line">   finished(parameter : <span class="string">"block参数"</span>)</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line">test(&#123; (parameter) -&gt; () <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"block传过来的参数:<span class="subst">\(parameter)</span>"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">(finished : <span class="params">(parameter : String)</span></span></span> -&gt; ())&#123;</span><br><span class="line">   finished(parameter : <span class="string">"block参数"</span>)</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line">test(&#123; (parameter) -&gt; () <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"block传过来的参数:\(parameter)"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="3-闭包的简写"><a href="#3-闭包的简写" class="headerlink" title="3. 闭包的简写"></a>3. 闭包的简写</h3><ul>
 <li>如果闭包没有写参数, 没有返回值,闭包的参数可以不写</li>
 </ul>
@@ -312,7 +316,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test(&#123;[<span class="keyword">weak</span> <span class="keyword">self</span>] (parameter) -&gt; () <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"block传过来的参数:<span class="subst">\(parameter)</span>"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test(&#123;[<span class="keyword">weak</span> <span class="keyword">self</span>] (parameter) -&gt; () <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"block传过来的参数:\(parameter)"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>方案三:<ul>
 <li>使用关键字<code>unowned</code></li>
@@ -321,7 +325,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test(&#123;[<span class="keyword">unowned</span> <span class="keyword">self</span>] (parameter) -&gt; () <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"block传过来的参数:<span class="subst">\(parameter)</span>"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test(&#123;[<span class="keyword">unowned</span> <span class="keyword">self</span>] (parameter) -&gt; () <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"block传过来的参数:\(parameter)"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="六、懒加载"><a href="#六、懒加载" class="headerlink" title="六、懒加载"></a>六、懒加载</h2><h3 id="1-懒加载的介绍"><a href="#1-懒加载的介绍" class="headerlink" title="1. 懒加载的介绍"></a>1. 懒加载的介绍</h3><ul>
 <li>苹果的设计思想:希望所有的对象在使用时才真正加载到内存中)</li>
@@ -369,7 +373,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">readFileContent</span><span class="params">(filePath : String)</span></span> -&gt; <span class="type">String</span>? &#123;</span><br><span class="line">    <span class="comment">// 1.filePath为""</span></span><br><span class="line">    <span class="keyword">if</span> filePath == <span class="string">""</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 2.filePath有值,但是没有对应的文件</span></span><br><span class="line">    <span class="keyword">if</span> filePath != <span class="string">"/User/Desktop/123.plist"</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 3.取出其中的内容</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"123"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">readFileContent(<span class="string">"abc"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">readFileContent</span><span class="params">(filePath : String)</span></span> -&gt; <span class="type">String?</span> &#123;</span><br><span class="line">    <span class="comment">// 1.filePath为""</span></span><br><span class="line">    <span class="keyword">if</span> filePath == <span class="string">""</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 2.filePath有值,但是没有对应的文件</span></span><br><span class="line">    <span class="keyword">if</span> filePath != <span class="string">"/User/Desktop/123.plist"</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 3.取出其中的内容</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"123"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">readFileContent(<span class="string">"abc"</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>使用异常对上述方法的改进</li>
 </ul>
@@ -379,7 +383,7 @@
 <h2 id="十、OC、Swift混编"><a href="#十、OC、Swift混编" class="headerlink" title="十、OC、Swift混编"></a>十、OC、Swift混编</h2><h3 id="1-Swift调用OC"><a href="#1-Swift调用OC" class="headerlink" title="1. Swift调用OC"></a>1. Swift调用OC</h3><ul>
 <li>创建桥接文件</li>
 <li>配置桥接文件<ul>
-<li>步骤图<br><img src="https://yuxiang.ren/images/images/配置桥接文件.png" alt=""></li>
+<li>步骤图<br><img src="https://yuxiang.ren/images/images/配置桥接文件.png" alt></li>
 </ul>
 </li>
 </ul>
@@ -429,7 +433,7 @@
                 client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
             },
         })
-        //  //container为你要显示评论的id
+        //container为你要显示评论的id
         gitment.render('container');
     </script>
 
@@ -449,7 +453,7 @@
     <div class="container" style="margin-top: -20px">
             <div class="copy">
                 <p class="copyRights">
-                    &copy; 2016<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By <a class='theme-link' href='mailto:mail@yuxiang.ren', target='_blank'>任玉祥</a>. All Rights Reserved.
+                    &copy; 2016<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By <a class="theme-link" href="mailto:mail@yuxiang.ren" , target="_blank">任玉祥</a>. All Rights Reserved.
                 </p>
                 
                 <p class="copyRights">
@@ -458,7 +462,7 @@
                     &nbsp;|&nbsp;
                     <a href="http://www.miitbeian.gov.cn" target="_blank"> 浙ICP备17016497号-1 </a>
                     &nbsp;|&nbsp;
-                    在Github上查看网站 <a class="theme-link" href='https://github.com/shlyren/shlyren.github.io', target='_blank'>源码</a>
+                    在Github上查看网站 <a class="theme-link" href="https://github.com/shlyren/shlyren.github.io" , target="_blank">源码</a>
                     <!-- &nbsp;|&nbsp;
                     <script type="text/javascript" src="https://s95.cnzz.com/z_stat.php?id=1259844339&web_id=1259844339"></script>  -->
                 </p>

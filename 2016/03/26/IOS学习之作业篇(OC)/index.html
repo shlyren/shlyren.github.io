@@ -67,7 +67,7 @@
 
     <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
         <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
-            <img src="/img/close.png" alt="Close"/>
+            <img src="/img/close.png" alt="Close">
         </div>
         <!-- Lists in Slidebars -->
         <ul class="sb-menu">
@@ -92,6 +92,10 @@
 				    <li><a href="/categories/教程/" class="animsition-link">教程<small>(20)</small></a></li>
 				    
 				    <li><a href="/categories/杂碎/" class="animsition-link">杂碎<small>(3)</small></a></li>
+				    
+				    <li><a href="/categories/笔记/" class="animsition-link">笔记<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/笔记，OC/" class="animsition-link">笔记，OC<small>(0)</small></a></li>
 				    
 				</ul>
         	</li>
@@ -129,7 +133,7 @@
                     <!-- Nav logo -->
                     <div class="logo">
                         <a href="/" title="Logo" class="animsition-link">
-                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                         <img src="/img/logo.png" alt="Logo" width="35px;"> 
                         </a>
                     </div>
                     <!-- // Nav logo -->
@@ -168,7 +172,7 @@
 
         <!-- ============================ Header & Logo bar =========================== -->
 
-
+</div>
       
 
 
@@ -183,7 +187,7 @@
     
     
     | 
-    <a href='/tags/Objective-C/'>Objective-C</a>
+    <a href="/tags/Objective-C/">Objective-C</a>
     
     
 </span>
@@ -199,7 +203,7 @@
 <li><code>+load</code>:是在类加载到内存的时候调用,只会调用一次</li>
 <li><code>+initialize</code>:是在第一次使用类或者子类的时候调用,会调用多次</li>
 </ul>
-<ol>
+<ol start="2">
 <li><strong><code>UITabBarCOntroller</code>控制器中view的内部结构?</strong></li>
 </ol>
 <ul>
@@ -213,7 +217,7 @@
 <li><strong>为什么使用协议</strong>: 当有些事情,自己不想做,交给别人,就搞个协议.实例:Appdelegate</li>
 <li><strong>什么时候使用协议</strong>: 延展到封装自己框架(自定义类),常常通过协议给外界提供接.</li>
 </ul>
-<ol>
+<ol start="2">
 <li><strong>UICollectionView使用步骤?</strong></li>
 </ol>
 <ul>
@@ -230,7 +234,7 @@
 <li>category常常给系统类扩展方法.</li>
 <li>extension用于自定义类.</li>
 </ul>
-<ol>
+<ol start="2">
 <li><strong>runtime实现的机制是什么,有哪些用法，一般用于干嘛?</strong></li>
 </ol>
 <ul>
@@ -251,7 +255,7 @@
 <li>怎么才会导致这个错误:访问不该访问的对象</li>
 <li>避免这种:当一个对象被销毁,记得清空指针</li>
 </ul>
-<ol>
+<ol start="2">
 <li><strong>怎么研究新的API?</strong></li>
 </ol>
 <ul>
@@ -268,7 +272,7 @@
 <li>bounds: 也是指的是范围 指的是 控件可视范围 在 ‘内容中’ 区域 . 控件可视范围相对于内容</li>
 <li>内容:每个控件都有自己内容,而且是无限大,而且这个控件的所有子控件都是相对于内容</li>
 </ul>
-<ol>
+<ol start="2">
 <li>数据传值的几种方式</li>
 </ol>
 <ul>
@@ -287,7 +291,7 @@
 <li>如果没有value属性，就查找带_的成员属性</li>
 <li>如果还没有就报 </li>
 </ul>
-<ol>
+<ol start="2">
 <li>KVO底层怎么实现的?<br>KVO全称为<code>Key Value Observer</code>即<strong>键值监听</strong>:观察一个对象的某一个属性发生改变.当发生改变时,通知另外一个对象做事情;<br><strong>底层实现:</strong><ul>
 <li>当第一次观察一个对象时,Runtime会动态的创建一个继承自该对象所属类的子类 NSKVONotifying_(父类的名字)</li>
 <li>这个新创建的子类重写了所有被观察属性的 setter 方法，并且在内部给观察者发送通知，通知所有观察对象值的更改。</li>
@@ -362,7 +366,7 @@
                 client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
             },
         })
-        //  //container为你要显示评论的id
+        //container为你要显示评论的id
         gitment.render('container');
     </script>
 
@@ -382,7 +386,7 @@
     <div class="container" style="margin-top: -20px">
             <div class="copy">
                 <p class="copyRights">
-                    &copy; 2016<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By <a class='theme-link' href='mailto:mail@yuxiang.ren', target='_blank'>任玉祥</a>. All Rights Reserved.
+                    &copy; 2016<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By <a class="theme-link" href="mailto:mail@yuxiang.ren" , target="_blank">任玉祥</a>. All Rights Reserved.
                 </p>
                 
                 <p class="copyRights">
@@ -391,7 +395,7 @@
                     &nbsp;|&nbsp;
                     <a href="http://www.miitbeian.gov.cn" target="_blank"> 浙ICP备17016497号-1 </a>
                     &nbsp;|&nbsp;
-                    在Github上查看网站 <a class="theme-link" href='https://github.com/shlyren/shlyren.github.io', target='_blank'>源码</a>
+                    在Github上查看网站 <a class="theme-link" href="https://github.com/shlyren/shlyren.github.io" , target="_blank">源码</a>
                     <!-- &nbsp;|&nbsp;
                     <script type="text/javascript" src="https://s95.cnzz.com/z_stat.php?id=1259844339&web_id=1259844339"></script>  -->
                 </p>
