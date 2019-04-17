@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="iOS developer"><title>Block | 任玉祥</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Block</h1><a id="logo" href="/.">任玉祥</a><p class="description">baixiaotu.cc</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archive/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/history/"><i class="fa fa-history"> 历史</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-4-4"><div class="content_container"><div class="post"><h1 class="post-title">Block</h1><div class="post-content"><h3 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h3><ul>
+<li><p>本质是一个OC对象，内部有一个isa指针</p>
+</li>
+<li><p>封装了函数调用以及函数调用环境的OC对象</p>
+</li>
+<li><p>block底层结构如下图所示</p>
+<p><img src="https://i.loli.net/2019/04/16/5cb5526944b5c.png" alt="结构图"></p>
+</li>
+</ul>
+<h3 id="底层结构"><a href="#底层结构" class="headerlink" title="底层结构"></a>底层结构</h3><p><img src="https://i.loli.net/2019/04/16/5cb55b750b442.png" alt="底层结构"></p>
+<h3 id="变量捕获"><a href="#变量捕获" class="headerlink" title="变量捕获"></a>变量捕获</h3><blockquote>
+<p>为了保证block内部能够正常访问外部变量，block有个变量捕获机制</p>
+</blockquote>
+<table border="0" cellpadding="0" cellspacing="0" width="522" style="border-collapse:
+ collapse;table-layout:fixed;width:391pt"><br> <col width="87" style="width:65pt"><br> <col width="119" style="mso-width-source:userset;mso-width-alt:3797;width:89pt"><br> <col width="193" style="mso-width-source:userset;mso-width-alt:6186;width:145pt"><br> <col width="123" style="mso-width-source:userset;mso-width-alt:3925;width:92pt"><br> <tr height="21" style="height:16.0pt"><br>  <td colspan="2" height="21" class="xl67" width="206" style="height:16.0pt;width:154pt">变量类型</td><br>  <td class="xl67" width="193" style="width:145pt">捕获到block内部</td><br>  <td class="xl67" width="123" style="width:92pt">访问方式</td><br> </tr><br> <tr height="24" style="height:18.0pt"><br>  <td rowspan="2" height="48" class="xl65" style="height:36.0pt;width:100.0pt">局部变量</td><br>  <td class="xl65">auto</td><br>  <td class="xl66">✅</td><br>  <td class="xl65">值传递</td><br> </tr><br> <tr height="24" style="height:18.0pt"><br>  <td height="24" class="xl65" style="height:18.0pt">static</td><br>  <td class="xl66">✅</td><br>  <td class="xl65">指针传递</td><br> </tr><br> <tr height="21" style="height:16.0pt"><br>  <td colspan="2" height="21" class="xl65" style="height:16.0pt">全局变量</td><br>  <td class="xl65">❌</td><br>  <td class="xl65">直接访问</td><br> </tr><br></table>
+
+
+
+<h3 id="block的类型"><a href="#block的类型" class="headerlink" title="block的类型"></a>block的类型</h3><blockquote>
+<p>block有3中类型，可以通过调用class的方法或者isa指针查看具体类型，最终都是继承自NSBlock</p>
+</blockquote>
+<ul>
+<li><p><code>__NSGlobalBlock__</code>(_NSConcreateGlobalBlock)：没有访问auto变量</p>
+</li>
+<li><p><code>__NSStackBlock__</code>(_NSConcreateStackBlock)：访问auto变量，存放于栈，随时可能被销毁</p>
+</li>
+<li><p><code>__NSMallocBlock__</code>(_NSConcreateMallocBlock)：<code>__NSStackBlock__</code>调用了copy</p>
+</li>
+</ul>
+<h3 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h3><p>  <img src="https://i.loli.net/2019/04/16/5cb57e3f5e417.png" alt="内存分配.png"></p>
+<ul>
+<li>.text区：代码段</li>
+<li>.data区：数据段，一般存放全局变量</li>
+<li>堆：动态分配内存，需要程序员申请内存，也需要自己管理内存</li>
+<li>栈：系统自动分配内存</li>
+</ul>
+<h3 id="block的copy"><a href="#block的copy" class="headerlink" title="block的copy"></a>block的copy</h3><h4 id="MRC"><a href="#MRC" class="headerlink" title="MRC"></a>MRC</h4><blockquote>
+<p>每一种类型的block调用copy后的结构如下</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Block的类</th>
+<th style="text-align:left">副本源的配置存储域</th>
+<th>复制效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_NSConcreateGlobalBlock</td>
+<td style="text-align:left">程序的数据区域</td>
+<td>什么也不做</td>
+</tr>
+<tr>
+<td>_NSConcreateStackBlock</td>
+<td style="text-align:left">栈</td>
+<td>从栈复制到堆</td>
+</tr>
+<tr>
+<td>_NSConcreateMallocBlock</td>
+<td style="text-align:left">堆</td>
+<td>引用计数增加</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>建议写法</p>
+<p><code>@property (nonatomic, copy) void (^block)(void);</code></p>
+</li>
+</ul>
+<h4 id="ARC"><a href="#ARC" class="headerlink" title="ARC"></a>ARC</h4><ol>
+<li>在ARC环境下，编译器会根据情况自动将栈上的block复制到堆上，比如<ul>
+<li>block作为函数返回值时</li>
+<li>将block赋值给<code>__strong</code>指针时</li>
+<li>block作为Cocoa API中方法名含有usingBlock的方法参数时</li>
+<li>block作为GCD API方法参数时</li>
+</ul>
+</li>
+<li>建议写法<ul>
+<li><code>@property (strong, nonatomic) void (^block)(void);</code></li>
+<li><code>@propertu (copy, nonatomic) void (^block)(void);</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="对象类型的auto"><a href="#对象类型的auto" class="headerlink" title="对象类型的auto"></a>对象类型的auto</h3><ol>
+<li><p>当block内部访问了对象类型的auto变量时</p>
+<ul>
+<li>如果block在栈上， 将不会对auto变量产生强引用</li>
+</ul>
+</li>
+<li><p>如果block被拷贝到堆上</p>
+<ul>
+<li>堆调用block内部的copy函数</li>
+<li>copy函数内部会调用_Block_object_assign函数</li>
+<li>_Block_object_assign函数会根据auto变量的修饰符(<code>__strong</code>,<code>__weak__</code>,<code>__unsafe_unretained</code>)做出相应的操作，类似于retain(形成强引用、弱引用)</li>
+</ul>
+</li>
+<li><p>如果block从堆上移除</p>
+<ul>
+<li>会调用gblock内部的dispose函数</li>
+<li>dispose函数内部会调用_Block_object_dispose函数</li>
+<li>_Block_object_dispose函数会自动书房引用的auto变量，类似于release</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>调用时机</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>copy函数</td>
+<td>栈上Block复制到堆上时</td>
+</tr>
+<tr>
+<td>dispose函数</td>
+<td>堆上的Block被废弃时</td>
+</tr>
+</tbody>
+</table>
+<h3 id="block"><a href="#block" class="headerlink" title="__block"></a>__block</h3><h4 id="本质-1"><a href="#本质-1" class="headerlink" title="本质"></a>本质</h4><ul>
+<li>__block用于解决block内部无法修改auto变量值的问题</li>
+<li>__block不能修饰全局变量、静态变量(static)</li>
+<li>编译器会将__block变量包装成一个对象<br><img src="https://i.loli.net/2019/04/16/5cb5a4cfe409a.png" alt="底层.png"></li>
+</ul>
+<h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4><ul>
+<li>当block在栈上时，并不会对__block变量产生强引用</li>
+<li>当block呗copy到堆时<ul>
+<li>会调用block内部的copy函数</li>
+<li>copy函数会调用_Block_object_assign函数</li>
+<li>_Block_object_assign函数会对__block变量强引用<br><img src="https://i.loli.net/2019/04/16/5cb5a9f5c6e14.png" alt="内存管理.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="循环引用"><a href="#循环引用" class="headerlink" title="循环引用"></a>循环引用</h3><h4 id="ARC-1"><a href="#ARC-1" class="headerlink" title="ARC"></a>ARC</h4><ol>
+<li><p>通过<code>__weak</code>解决，推荐</p>
+<ul>
+<li>不会产生强引用，指向的对象销毁时会自动置为nill</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__weak typeof(self) weakSelf = self; </span><br><span class="line">self.bolck = ^&#123;</span><br><span class="line">  NSLog(@&quot;%@&quot;, weakSelf);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过<code>__unsafe_unretaine</code>解决</p>
+<ul>
+<li>不会产生强引用，不安全(野指针)。指向的对象销毁时，指针指向的地址值不变</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__unsafe_unretaine typeof(self) weakSelf = self; </span><br><span class="line">self.bolck = ^&#123;</span><br><span class="line">  NSLog(@&quot;%@&quot;, weakSelf);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过<code>__block</code>解决</p>
+<ul>
+<li>必须要调用block</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">__block typeof(self) blockSelf = self;</span><br><span class="line">self.block = ^&#123;</span><br><span class="line">  NSLog(@&quot;%@&quot;, blockSelf);</span><br><span class="line">  blockSelf = nil;</span><br><span class="line">&#125;;</span><br><span class="line">self.block();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="MRC-1"><a href="#MRC-1" class="headerlink" title="MRC"></a>MRC</h4><ol>
+<li><p>通过<code>__unsafe_unretaine</code>解决，同ARC</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__unsafe_unretaine typeof(self) weakSelf = self; </span><br><span class="line">self.bolck = ^&#123;</span><br><span class="line">  NSLog(@&quot;%@&quot;, weakSelf);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过<code>__block</code>解决，同ARC</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">__block typeof(self) blockSelf = self;</span><br><span class="line">self.block = ^&#123;</span><br><span class="line">  NSLog(@&quot;%@&quot;, blockSelf);</span><br><span class="line">  blockSelf = nil;</span><br><span class="line">&#125;;</span><br><span class="line">self.block();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h3><ol>
+<li><p>block底层原理?</p>
+<p>封装了函数调用及其调用环境的oc对象</p>
+</li>
+<li><p>__block的作用，使用注意点?</p>
+<p>用于解决block内部无法修改auto变量值的问题</p>
+</li>
+<li><p>__block修饰为什么是copy，使用注意点？</p>
+<p>block一旦没有进行copy操作，就不会在堆上。</p>
+<p>需要注意循环引用</p>
+</li>
+</ol>
+</div></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+  owner: 'shlyren',
+  repo: 'shlyren.github.io',
+  oauth: {
+    client_id: 'df478fbaef5dcc6e5e43',
+    client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
+  },
+})
+gitment.render('container')
+</script></div></div><div class="pure-u-1 pure-u-md-4-4"><div id="footer"><div style="margin:0 auto; padding:20px 0;">©2016-2017&#x9;<a href="mailto:mail@yuxiang.ren" target="_blank" style="color:#939393">任玉祥</a>.  在Github上查看网站<a href="https://github.com/shlyren/shlyren.github.io" target="_blank" style="color:#939393">源码</a>。<script src="https://s95.cnzz.com/z_stat.php?id=1259844339&amp;web_id=1259844339" language="JavaScript"></script><br> <a target="_blank" href="http://www.miitbeian.gov.cn" style="display:inline-block;height:20px;line-height:20px;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">浙ICP备17016497号-1</p></a>&#x9;<a style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">|</p></a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602008160" style="display:inline-block;line-height:20px;"><img src="https://renyuxiang.oss-cn-shanghai.aliyuncs.com/file/beian.png" style="float:left;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010602008160号</p></a><br>本站采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" style="color:#939393">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议 </a>进行许可。</div></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
