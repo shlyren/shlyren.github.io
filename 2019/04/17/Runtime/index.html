@@ -1,0 +1,403 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="iOS developer"><title>KVO及KVC | 任玉祥</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">KVO及KVC</h1><a id="logo" href="/.">任玉祥</a><p class="description">baixiaotu.cc</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archive/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/history/"><i class="fa fa-history"> 历史</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-4-4"><div class="content_container"><div class="post"><h1 class="post-title">KVO及KVC</h1><div class="post-content"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li><p>Objective-C是一门动态性特别强的变成语言，跟C、C++等语言有着很大的不同</p>
+</li>
+<li><p>Objective-C的动态特性是有Runtime API来支撑的</p>
+</li>
+<li><p>Runtime API提供的接口基本上是C语言的，源码由C/C++汇编语言编写</p>
+</li>
+</ul>
+<h3 id="isa详解-位域"><a href="#isa详解-位域" class="headerlink" title="isa详解-位域"></a>isa详解-位域</h3><p>​    <img src="https://i.loli.net/2019/04/17/5cb6c704318de.png" alt="对象的isa"></p>
+<ul>
+<li><p>想要学习Runtime，首先要了解他底层的一些常用数据结构，比如isa指针</p>
+</li>
+<li><p>在arm64架构之前，isa就是一个普通的指针，存储着Class、Meta-Class对象的内存地址</p>
+</li>
+<li><p>从arm64架构开始，对isa进行了优化，变成了一个共用体(union)结构，还使用<strong>位域</strong>来存储更多的信息</p>
+<p><img src="https://i.loli.net/2019/04/17/5cb6ad4fd4316.png" alt="isa.png"></p>
+<ul>
+<li>nonpointer<ul>
+<li>0：代表普通的指针，存储着Class、Meta-Class对象的内存地址</li>
+<li>1：代表优化过，使用位域存储更多的信息</li>
+<li>has_assoc</li>
+<li>是否有设置过关联对象。如果没有，释放时会更快</li>
+<li>has_cxx_dtor</li>
+<li>是否有C++的析构函数(.cxx_destruct)，如果没有释放时会更快</li>
+<li>shiftcls</li>
+<li>存储着Class、Meta-Class对象的内存地址信息</li>
+<li>magic</li>
+<li>用于在调试时分辨对象是否未完成初始化</li>
+<li>weakly_referenced</li>
+<li>是否有被弱引用只想过，如果没有，释放时会更快</li>
+<li>deallocating</li>
+<li>对象是否正在释放</li>
+<li>extra_rc</li>
+<li>里面存储的值是引用计数器减1</li>
+<li>has_sidetable_rc</li>
+<li>引用计数器是否过大无法存储在isa中</li>
+<li>如果为1，那么引用计数会存储在一个叫SideTable的类的属性中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="类对象"><a href="#类对象" class="headerlink" title="类对象"></a>类对象</h3><h4 id="class的结构"><a href="#class的结构" class="headerlink" title="class的结构"></a>class的结构</h4><p><img src="https://i.loli.net/2019/04/17/5cb6c84834aae.png" alt="class结构.png"></p>
+<h4 id="class-rw-t"><a href="#class-rw-t" class="headerlink" title="class_rw_t"></a>class_rw_t</h4><blockquote>
+<p>class_rw_t里面的methods、properties、protocols是二位数组，是可读可写的包含了类的初始内容、分类内容</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/04/17/5cb6cb1d8eda4.png" alt="rw_t.png"></p>
+<h4 id="class-ro-t"><a href="#class-ro-t" class="headerlink" title="class_ro_t"></a>class_ro_t</h4><blockquote>
+<p>class_ro_t里面的baseMethodList、baseProtocols、ivars、baseProperties是一维数组，是只读的，包含了类的初始内容</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/04/17/5cb6cbce98993.png" alt="ro_t.png"></p>
+<h4 id="method-t"><a href="#method-t" class="headerlink" title="method_t"></a>method_t</h4><blockquote>
+<p>method_t是对方法\函数的封装</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct method_t &#123;</span><br><span class="line">  SEL name; // 函数名</span><br><span class="line">  const char *types; // 编码(返回值类型、参数类型)</span><br><span class="line">  IMP imp; // 指向函数的指针</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>IMP代表函数的具体实现</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">id</span> _Nullable (*IMP)(<span class="keyword">id</span> _Nonnull, SEL _Nonnull, ...);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SEL代表方法\函数名，一般叫做选择器，底层结构跟char*类似</p>
+<ul>
+<li>可以通过@seelctor()和sel_registarName()获得</li>
+<li>可以通过sel_getName()和NSStringFromSelector()转成字符串</li>
+<li>不同类中相同名字的方法，所对应的方法选择器是相同的</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_selector *SEL;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>types包含了函数的返回值、参数编码的字符串，参阅<a id="typeencoding">Type Encoding</a>。</p>
+<p><img src="https://i.loli.net/2019/04/17/5cb6d6470d7f0.png" alt="types.png"></p>
+</li>
+</ul>
+<h4 id="cache-t"><a href="#cache-t" class="headerlink" title="cache_t"></a>cache_t</h4><ol>
+<li><p>Class内部结构中有个方法缓存(cache_t)，用==散列表(哈希值)==来缓存曾经调用过的方法，可以提高方法的查找速度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct cache_t &#123;</span><br><span class="line">  struct bucket_t *_buckets; // 散列表</span><br><span class="line">  mask_t _mask; // 散列表长度-1</span><br><span class="line">  mask_t _occupied; // 已经缓存的方法数量</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct bucket_t &#123;</span><br><span class="line">  cache_key_t _key; // SEL作为key</span><br><span class="line">  IMP _imp; // 函数的内存地址</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>缓存查找</p>
+<ul>
+<li><p>objc-cache.mm</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bucket_t</span> * <span class="keyword">cache_t</span>::find(<span class="keyword">cache_key_t</span> k, id receiver)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="Type-Encoding"><a href="#Type-Encoding" class="headerlink" title="Type Encoding"></a><a href="#typeencoding">Type Encoding</a></h4><blockquote>
+<p>ios中提供了一个叫做@encode的指令，可以将具体的类型表示成字符串编码</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">code</th>
+<th style="text-align:left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">c</td>
+<td style="text-align:left">A char</td>
+</tr>
+<tr>
+<td style="text-align:center">i</td>
+<td style="text-align:left">An int</td>
+</tr>
+<tr>
+<td style="text-align:center">s</td>
+<td style="text-align:left">A short</td>
+</tr>
+<tr>
+<td style="text-align:center">l</td>
+<td style="text-align:left">A long. l is treated as a 32-bit quantity on 64-bit programs.</td>
+</tr>
+<tr>
+<td style="text-align:center">q</td>
+<td style="text-align:left">A long long</td>
+</tr>
+<tr>
+<td style="text-align:center">c</td>
+<td style="text-align:left">An unsigned char</td>
+</tr>
+<tr>
+<td style="text-align:center">I</td>
+<td style="text-align:left">An unsigned int</td>
+</tr>
+<tr>
+<td style="text-align:center">s</td>
+<td style="text-align:left">An unsigned short</td>
+</tr>
+<tr>
+<td style="text-align:center">L</td>
+<td style="text-align:left">An unsigned long</td>
+</tr>
+<tr>
+<td style="text-align:center">Q</td>
+<td style="text-align:left">An unsigned long long</td>
+</tr>
+<tr>
+<td style="text-align:center">f</td>
+<td style="text-align:left">A float</td>
+</tr>
+<tr>
+<td style="text-align:center">d</td>
+<td style="text-align:left">A double</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:left">A C++ bool or a C99 Bool</td>
+</tr>
+<tr>
+<td style="text-align:center">v</td>
+<td style="text-align:left">A void</td>
+</tr>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:left">A character string (char *)</td>
+</tr>
+<tr>
+<td style="text-align:center">@</td>
+<td style="text-align:left">An object(whether statically typed or typed id)</td>
+</tr>
+<tr>
+<td style="text-align:center">#</td>
+<td style="text-align:left">A class object(Class)</td>
+</tr>
+<tr>
+<td style="text-align:center">:</td>
+<td style="text-align:left">A method selector(SEL)</td>
+</tr>
+<tr>
+<td style="text-align:center">[array type]</td>
+<td style="text-align:left">An array</td>
+</tr>
+<tr>
+<td style="text-align:center">{name=type…}</td>
+<td style="text-align:left">A structure</td>
+</tr>
+<tr>
+<td style="text-align:center">(name=type…)</td>
+<td style="text-align:left">A union</td>
+</tr>
+<tr>
+<td style="text-align:center">bunm</td>
+<td style="text-align:left">A bit field of num bits</td>
+</tr>
+<tr>
+<td style="text-align:center">^type</td>
+<td style="text-align:left">A pointer to type</td>
+</tr>
+<tr>
+<td style="text-align:center">?</td>
+<td style="text-align:left">An unknow type(among other things, this code is used for function pointers)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="objc-msgSend"><a href="#objc-msgSend" class="headerlink" title="objc_msgSend"></a>objc_msgSend</h3><blockquote>
+<p>消息机制：给方法调用者发送消息</p>
+<p>OC中的方法调用，其实都是转化为objc_msgSend函数调用</p>
+</blockquote>
+<h4 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h4><p>objc_msgSend的执行流程分为3大阶段：</p>
+<h5 id="消息发送"><a href="#消息发送" class="headerlink" title="消息发送"></a>消息发送</h5><p><img src="https://i.loli.net/2019/04/18/5cb7d22099d16.png" alt="msgsend.png"></p>
+<ul>
+<li><p>如果是从class_rw_t中查找方法</p>
+<ul>
+<li>已经排序：二分查找</li>
+<li><p>没有排序：便利查找</p>
+</li>
+<li><p>receiver通过isa指针找到receiverClass</p>
+</li>
+<li><p>receiverClass通过superclass指针找到superClass</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="动态方法解析"><a href="#动态方法解析" class="headerlink" title="动态方法解析"></a>动态方法解析</h5><p><img src="https://i.loli.net/2019/04/18/5cb7d6edd9cd6.png" alt="动态解析.png"></p>
+<ul>
+<li>开发者可以实现以下方法来<ul>
+<li><code>+resolveInstanceMethod:</code></li>
+<li><code>+resolveClassMethod:</code></li>
+</ul>
+</li>
+<li>动态解析过后，会重新走“消息发送”的流程<ul>
+<li><strong>从receiverClass的cache中查找方法</strong>这一步开始执行</li>
+</ul>
+</li>
+</ul>
+<h5 id="消息转发"><a href="#消息转发" class="headerlink" title="消息转发"></a>消息转发</h5><p><img src="https://i.loli.net/2019/04/18/5cb7dad8b51e9.png" alt="repost.png"></p>
+<ul>
+<li><p>开发者可以在<code>forwardInvocation:</code>方法中自定义任何逻辑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (id)forwardingTargetForSelector:(SEL)aSelector</span><br><span class="line">&#123;</span><br><span class="line">    if (aSelector == sel_registerName(&quot;test&quot;)) &#123;</span><br><span class="line">        return [OtherClass new];</span><br><span class="line">    &#125;</span><br><span class="line">    return [super forwardingTargetForSelector:aSelector];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>以上方法都有对象方法、类方法2个版本（前面可以是加号+，也可以是减号-）</p>
+<ul>
+<li>类方法xcode会出现无代码提示</li>
+</ul>
+</li>
+<li><p><code>methodSignatureForSelector:</code>方法签名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector</span><br><span class="line">&#123;</span><br><span class="line">    if (aSelector == sel_registerName(&quot;test&quot;)) &#123;</span><br><span class="line">      //  [[OtherClass new] methodSignatureForSelector:aSelector]</span><br><span class="line">        return [NSMethodSignature signatureWithObjCTypes:&quot;v@:&quot;];</span><br><span class="line">    &#125;</span><br><span class="line">    return [super methodSignatureForSelector:aSelector];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>- (void)forwardInvocation:(NSInvocation *)anInvocation</code></p>
+<ul>
+<li>封装了一个方法调用，包括：方法调用者、方法名、方法参数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)forwardInvocation:(NSInvocation *)anInvocation</span><br><span class="line">&#123;</span><br><span class="line">    anInvocation.target = [OtherClass new];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="动态添加方法"><a href="#动态添加方法" class="headerlink" title="动态添加方法"></a><a href="#addmethod">动态添加方法</a></h4><ol>
+<li><p>OC</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)other</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">BOOL</span>)resolveInstanceMethod:(SEL)sel</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (sel == <span class="keyword">@selector</span>(test)) &#123;</span><br><span class="line">        Method method = class_getInstanceMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(other));</span><br><span class="line">        class_addMethod(<span class="keyword">self</span>, sel, method_getImplementation(method), method_getTypeEncoding(method))</span><br><span class="line">          returun <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> resolveInstanceMethod:sel];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Method</code>可以理解为等价于<code>struct method_t *</code></li>
+</ul>
+</li>
+<li><p>C</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> other(<span class="keyword">id</span> <span class="keyword">self</span>, SEL _cmd) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@ - %s - %s"</span>, <span class="keyword">self</span>, sel_getName(_cmd, __func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">BOOL</span>)resolveInstanceMethod:(SEL)sel</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (sel == <span class="keyword">@selector</span>(test)) &#123;</span><br><span class="line">        class_addMethod(<span class="keyword">self</span>, sel, (IMP)other, <span class="string">"v@:"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> resolveInstanceMethod:sel];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><code>@dynamic</code>是告诉编译器不用自动生成getter和setter的实现，等到运行时再添加方法实现</li>
+</ul>
+<h3 id="super本质"><a href="#super本质" class="headerlink" title="super本质"></a>super本质</h3><ul>
+<li><p>super调用，底层会转换为objc_msgSendSuper2函数的调用个，接收两个参数</p>
+<ul>
+<li><p>struct objc_super2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct objc_super2 &#123;</span><br><span class="line">  id receiver;</span><br><span class="line">  Class current_class;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SEL</p>
+</li>
+</ul>
+</li>
+<li><p>receiver是消息接受者</p>
+</li>
+<li><p>curretn_class是receiver的Class对象</p>
+</li>
+</ul>
+<h3 id="LLVM"><a href="#LLVM" class="headerlink" title="LLVM"></a>LLVM</h3><ul>
+<li>Objective-C在变为机器代码之前，会被LLVM编译器转为中间代码(Intermediate Representation)</li>
+<li>可以使用以下命令行指令生成中间代码<ul>
+<li><code>clang -emit-llvm -S main.m</code></li>
+</ul>
+</li>
+<li>语法简介<ul>
+<li>@ - 全局变量</li>
+<li>% - 局部变量</li>
+<li>alloca - 在当前执行的函数的堆栈中分配内存，但该函数返回到其调用者时，将自动释放内存</li>
+<li>i32 - 32位4字节的整数</li>
+<li>align - 对其</li>
+<li>load - 读出，stroe 写入</li>
+<li>icmp - 两个整数值比较，返回布尔值</li>
+<li>br - 选择分支，根据条件来转向label，不根据条件跳转的话类似goto</li>
+<li>label - 代码标签</li>
+<li>call - 调用函数</li>
+</ul>
+</li>
+<li>具体可以参考官方文档：<a href="https://llvm.org/docs/LangRef.html" target="_blank" rel="noopener">https://llvm.org/docs/LangRef.html</a></li>
+</ul>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><ul>
+<li><p>动态创建一个类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">	superclass: 父类，name: 类名，extraBytes: 额外的内存空间</span><br><span class="line">*/</span><br><span class="line">Class objc_allocateClassPair(Class superclass, const char *name, size_t extraBytes);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注册一个类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void objc_registerClassPair(Class cls);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>销毁一个类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void objc_disposeClassPair(Class cls);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取isa指向的Class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class object_getClass(id obj);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置isa指向的Class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class object_setClass(id obj, Class cls);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断一个对象是否为Class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BOOL object_isClass(id obj);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断对象是否是元类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BOOL class_isMetaClass(Class cls);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取父类</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class class_getSuperclass(Class cls);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h4><ul>
+<li><p>获取一个实例变量信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ivar class_getInstanceVariable(Class cls, const char *name);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拷贝实例变量列表（最后需要调用free释放）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ivar *class_copyIvarList(Class cls, unsigned int *outCount);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置和获取成员变量的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void object_setIvar(id obj, Ivar ivar, id value);</span><br><span class="line">id object_getIvar(id obj, Ivar ivar);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>动态添加成员变量（已经注册的类是不能动态添加成员变量的）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">	cls: 添加的类</span><br><span class="line">	name： 变量名</span><br><span class="line">	size：大小</span><br><span class="line">	alignment： 对齐， 1</span><br><span class="line">	types：类型编码 @encode()</span><br><span class="line">*/</span><br><span class="line">BOOL class_addIvar(Class cls, const char *name, size_t size, uint8_t alignment, const char *types);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取成员变量的相关信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const char *ivar_getName(Ivar v); // 变量名</span><br><span class="line">const char *ivar_getTypeEncoding(Ivar v); // 变量 类型编码</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><ul>
+<li><p>获得一个实例方法、类方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Method class_getInstanceMethod(Class cls, SEL name);</span><br><span class="line">Method class_getClassMethod(Class cls, SEL name)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法实现相关操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IMP class_getMethodImplementation(Class cls, SEL name);</span><br><span class="line">IMP method_setImplementation(Method m, IMP imp);</span><br><span class="line">void method_exchangeImplementations(Method m1, Method m2);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拷贝方法列表（最后需要调用free释放）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Method *class_copyMethodList(Class cls, unsigned int *outCount);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>动态添加方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BOOL class_addMethod(Class cls, SEL name, IMP imp, const char *types);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>动态替换方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IMP class_replaceMethod(Class cls, SEL name, IMP imp, const char *types);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取方法的相关信息（带有copy的需要调用free去释放）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SEL method_getName(Method m);</span><br><span class="line">IMP method_getImplementation(Method m);</span><br><span class="line">const char *method_getTypeEncoding(Method m);</span><br><span class="line">unsigned int method_getNumberOfArguments(Method m);</span><br><span class="line">char *method_copyReturnType(Method m);</span><br><span class="line">char *method_copyArgumentType(Method m, unsigned int index);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择器相关</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const char *sel_getName(SEL sel);</span><br><span class="line">SEL sel_registerName(const char *str);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用block作为方法实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IMP imp_implementationWithBlock(id block);</span><br><span class="line">id imp_getBlock(IMP anImp);</span><br><span class="line">BOOL imp_removeBlock(IMP anImp);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ol>
+<li><p>OC消息机制</p>
+<ul>
+<li><p>OC中的方法掉用其实都是转成了objc_msgSend函数的调用，给方法调用者发送了一条消息(方法名)</p>
+</li>
+<li><p>objc_msgSend底层有3大阶段</p>
+<ul>
+<li>消息发送（当前类、父类中查找）、动态方法解析、消息转发</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>什么是Runtime</p>
+<ul>
+<li>OC是一门动态性比较强的编程语言，允许很多操作推迟到程序运行时再进行</li>
+<li>OC的动态性就是由Runtime来支撑和实现的，Runtime是一套C语言的API，封装了很多动态性相关的函数</li>
+<li>平时编写的OC代码，底层都是转换成了Runtime API进行调用</li>
+</ul>
+</li>
+<li><p>具体应用</p>
+<ul>
+<li>利用关联对象（AssociatedObject）给分类添加属性</li>
+<li>遍历类的所有成员变量（修改textfield的占位文字颜色、字典转模型、自动归档解档）</li>
+<li>交换方法实现（交换系统的方法）</li>
+<li>利用消息转发机制解决方法找不到的异常问题</li>
+<li>……</li>
+</ul>
+</li>
+</ol>
+</div></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+  owner: 'shlyren',
+  repo: 'shlyren.github.io',
+  oauth: {
+    client_id: 'df478fbaef5dcc6e5e43',
+    client_secret: '2f0497ba0ca913e14d96644016bbac2ee482351f',
+  },
+})
+gitment.render('container')
+</script></div></div><div class="pure-u-1 pure-u-md-4-4"><div id="footer"><div style="margin:0 auto; padding:20px 0;">©2016-2017&#x9;<a href="mailto:mail@yuxiang.ren" target="_blank" style="color:#939393">任玉祥</a>.  在Github上查看网站<a href="https://github.com/shlyren/shlyren.github.io" target="_blank" style="color:#939393">源码</a>。<script src="https://s95.cnzz.com/z_stat.php?id=1259844339&amp;web_id=1259844339" language="JavaScript"></script><br> <a target="_blank" href="http://www.miitbeian.gov.cn" style="display:inline-block;height:20px;line-height:20px;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">浙ICP备17016497号-1</p></a>&#x9;<a style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">|</p></a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602008160" style="display:inline-block;line-height:20px;"><img src="https://renyuxiang.oss-cn-shanghai.aliyuncs.com/file/beian.png" style="float:left;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010602008160号</p></a><br>本站采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" style="color:#939393">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议 </a>进行许可。</div></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

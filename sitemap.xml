@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yuxiang.ren/2019/04/16/Block/</loc>
+    <loc>https://yuxiang.ren/2019/04/12/Category/</loc>
     
-    <lastmod>2019-04-17T08:21:24.238Z</lastmod>
+    <lastmod>2019-04-22T11:03:05.652Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2019/04/12/Category/</loc>
+    <loc>https://yuxiang.ren/2019/04/16/Block/</loc>
     
-    <lastmod>2019-04-16T06:33:10.325Z</lastmod>
+    <lastmod>2019-04-22T11:02:33.049Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yuxiang.ren/2019/04/17/Runtime/</loc>
+    
+    <lastmod>2019-04-22T11:02:24.438Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://yuxiang.ren/2019/04/10/KVO/</loc>
     
-    <lastmod>2019-04-12T09:42:12.998Z</lastmod>
+    <lastmod>2019-04-22T11:02:21.753Z</lastmod>
     
   </url>
   
@@ -222,13 +229,6 @@
     <loc>https://yuxiang.ren/2017/05/16/SVN%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2017-08-26T05:48:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yuxiang.ren/2016/03/26/runtime/</loc>
-    
-    <lastmod>2017-08-26T05:48:15.000Z</lastmod>
     
   </url>
   
