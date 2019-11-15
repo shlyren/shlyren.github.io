@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yuxiang.ren/about/index.html</loc>
+    
+    <lastmod>2019-11-15T08:05:59.031Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yuxiang.ren/history/index.html</loc>
     
     <lastmod>2019-11-15T07:58:04.488Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://yuxiang.ren/2019/04/10/KVO/</loc>
     
     <lastmod>2019-04-22T11:02:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yuxiang.ren/about/index.html</loc>
-    
-    <lastmod>2018-09-17T10:15:28.282Z</lastmod>
     
   </url>
   
