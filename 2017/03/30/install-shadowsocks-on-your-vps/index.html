@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="iOS developer"><title>安装shadowsocks | 任玉祥</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">安装shadowsocks</h1><a id="logo" href="/.">任玉祥</a><p class="description">baixiaotu.cc</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archive/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/history/"><i class="fa fa-history"> 历史</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-4-4"><div class="content_container"><div class="post"><h1 class="post-title">安装shadowsocks</h1><div class="post-content"><h2 id="一-安装"><a href="#一-安装" class="headerlink" title="一. 安装"></a>一. 安装</h2><ol>
+<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="iOS developer"><title>安装shadowsocks | 任玉祥</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">安装shadowsocks</h1><a id="logo" href="/.">任玉祥</a><p class="description">baixiaotu.cc</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archive/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/history/"><i class="fa fa-history"> 历史</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-4-4"><div class="content_container"><div class="post"><h1 class="post-title">安装shadowsocks</h1><div class="post-content"><h2 id="一-安装"><a href="#一-安装" class="headerlink" title="一. 安装"></a>一. 安装</h2><ol>
 <li><p>登录你的vps</p>
 </li>
 <li><p>安装PIP环境</p>
@@ -6,6 +6,7 @@
 </li>
 <li><p>安装<code>shadowsocks</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <p>##2.  配置信息</p>
@@ -18,13 +19,15 @@
 <li>编辑<code>config.json</code></li>
 </ol>
 <ul>
-<li>打开vi编辑器: <code>vi config.json</code></li>
+<li><p>打开vi编辑器: <code>vi config.json</code></p>
+</li>
 <li><p>按照下列格式填写配置信息</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">"server":"123.123.123.123", # 服务器地址</span><br><span class="line">"server_port":9000, #端口号</span><br><span class="line">"local_port":9000, # 本地端口号</span><br><span class="line">"password":"123456", # 密码</span><br><span class="line">"timeout":600, # 超时时间</span><br><span class="line">"method":"rc4-md5" # 密码类型</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>保存并且退出</p>
 </li>
-<li>阿里云香港搭shadowsocks服务的注意事项<ol>
+<li><p>阿里云香港搭shadowsocks服务的注意事项</p>
+<ol>
 <li>如果服务器是专有网络，<code>/etc/shadowsocks/config.json</code> 中的<code>server ip</code>是私有ip,而非公网ip</li>
 <li>服务器实例的安全组规则需要增加 自定义 TCP 在 相关端口（9000） 的访问 ,（允许所有ip访问，设置为0.0.0.0/0）</li>
 </ol>

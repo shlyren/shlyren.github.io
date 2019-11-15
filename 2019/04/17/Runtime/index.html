@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="iOS developer"><title>Runtime | 任玉祥</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Runtime</h1><a id="logo" href="/.">任玉祥</a><p class="description">baixiaotu.cc</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archive/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/history/"><i class="fa fa-history"> 历史</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-4-4"><div class="content_container"><div class="post"><h1 class="post-title">Runtime</h1><div class="post-content"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<!DOCTYPE html><html lang="zh-cn"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="iOS developer"><title>Runtime | 任玉祥</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Runtime</h1><a id="logo" href="/.">任玉祥</a><p class="description">baixiaotu.cc</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archive/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/history/"><i class="fa fa-history"> 历史</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-4-4"><div class="content_container"><div class="post"><h1 class="post-title">Runtime</h1><div class="post-content"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
 <li><p>Objective-C是一门动态性特别强的变成语言，跟C、C++等语言有着很大的不同</p>
 </li>
 <li><p>Objective-C的动态特性是有Runtime API来支撑的</p>
@@ -53,6 +53,7 @@
 <p>method_t是对方法\函数的封装</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct method_t &#123;</span><br><span class="line">  SEL name; // 函数名</span><br><span class="line">  const char *types; // 编码(返回值类型、参数类型)</span><br><span class="line">  IMP imp; // 指向函数的指针</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>IMP代表函数的具体实现</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">id</span> _Nullable (*IMP)(<span class="keyword">id</span> _Nonnull, SEL _Nonnull, ...);</span><br></pre></td></tr></table></figure>
@@ -76,7 +77,8 @@
 <li><p>缓存查找</p>
 <ul>
 <li><p>objc-cache.mm</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bucket_t</span> * <span class="keyword">cache_t</span>::find(<span class="keyword">cache_key_t</span> k, id receiver)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bucket_t</span> * <span class="keyword">cache_t</span>::<span class="built_in">find</span>(<span class="keyword">cache_key_t</span> k, id receiver)</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 </li>
@@ -87,109 +89,107 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:center">code</th>
-<th style="text-align:left">Meaning</th>
+<th align="center">code</th>
+<th align="left">Meaning</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">c</td>
-<td style="text-align:left">A char</td>
+<tbody><tr>
+<td align="center">c</td>
+<td align="left">A char</td>
 </tr>
 <tr>
-<td style="text-align:center">i</td>
-<td style="text-align:left">An int</td>
+<td align="center">i</td>
+<td align="left">An int</td>
 </tr>
 <tr>
-<td style="text-align:center">s</td>
-<td style="text-align:left">A short</td>
+<td align="center">s</td>
+<td align="left">A short</td>
 </tr>
 <tr>
-<td style="text-align:center">l</td>
-<td style="text-align:left">A long. l is treated as a 32-bit quantity on 64-bit programs.</td>
+<td align="center">l</td>
+<td align="left">A long. l is treated as a 32-bit quantity on 64-bit programs.</td>
 </tr>
 <tr>
-<td style="text-align:center">q</td>
-<td style="text-align:left">A long long</td>
+<td align="center">q</td>
+<td align="left">A long long</td>
 </tr>
 <tr>
-<td style="text-align:center">c</td>
-<td style="text-align:left">An unsigned char</td>
+<td align="center">c</td>
+<td align="left">An unsigned char</td>
 </tr>
 <tr>
-<td style="text-align:center">I</td>
-<td style="text-align:left">An unsigned int</td>
+<td align="center">I</td>
+<td align="left">An unsigned int</td>
 </tr>
 <tr>
-<td style="text-align:center">s</td>
-<td style="text-align:left">An unsigned short</td>
+<td align="center">s</td>
+<td align="left">An unsigned short</td>
 </tr>
 <tr>
-<td style="text-align:center">L</td>
-<td style="text-align:left">An unsigned long</td>
+<td align="center">L</td>
+<td align="left">An unsigned long</td>
 </tr>
 <tr>
-<td style="text-align:center">Q</td>
-<td style="text-align:left">An unsigned long long</td>
+<td align="center">Q</td>
+<td align="left">An unsigned long long</td>
 </tr>
 <tr>
-<td style="text-align:center">f</td>
-<td style="text-align:left">A float</td>
+<td align="center">f</td>
+<td align="left">A float</td>
 </tr>
 <tr>
-<td style="text-align:center">d</td>
-<td style="text-align:left">A double</td>
+<td align="center">d</td>
+<td align="left">A double</td>
 </tr>
 <tr>
-<td style="text-align:center">B</td>
-<td style="text-align:left">A C++ bool or a C99 Bool</td>
+<td align="center">B</td>
+<td align="left">A C++ bool or a C99 Bool</td>
 </tr>
 <tr>
-<td style="text-align:center">v</td>
-<td style="text-align:left">A void</td>
+<td align="center">v</td>
+<td align="left">A void</td>
 </tr>
 <tr>
-<td style="text-align:center">*</td>
-<td style="text-align:left">A character string (char *)</td>
+<td align="center">*</td>
+<td align="left">A character string (char *)</td>
 </tr>
 <tr>
-<td style="text-align:center">@</td>
-<td style="text-align:left">An object(whether statically typed or typed id)</td>
+<td align="center">@</td>
+<td align="left">An object(whether statically typed or typed id)</td>
 </tr>
 <tr>
-<td style="text-align:center">#</td>
-<td style="text-align:left">A class object(Class)</td>
+<td align="center">#</td>
+<td align="left">A class object(Class)</td>
 </tr>
 <tr>
-<td style="text-align:center">:</td>
-<td style="text-align:left">A method selector(SEL)</td>
+<td align="center">:</td>
+<td align="left">A method selector(SEL)</td>
 </tr>
 <tr>
-<td style="text-align:center">[array type]</td>
-<td style="text-align:left">An array</td>
+<td align="center">[array type]</td>
+<td align="left">An array</td>
 </tr>
 <tr>
-<td style="text-align:center">{name=type…}</td>
-<td style="text-align:left">A structure</td>
+<td align="center">{name=type…}</td>
+<td align="left">A structure</td>
 </tr>
 <tr>
-<td style="text-align:center">(name=type…)</td>
-<td style="text-align:left">A union</td>
+<td align="center">(name=type…)</td>
+<td align="left">A union</td>
 </tr>
 <tr>
-<td style="text-align:center">bunm</td>
-<td style="text-align:left">A bit field of num bits</td>
+<td align="center">bunm</td>
+<td align="left">A bit field of num bits</td>
 </tr>
 <tr>
-<td style="text-align:center">^type</td>
-<td style="text-align:left">A pointer to type</td>
+<td align="center">^type</td>
+<td align="left">A pointer to type</td>
 </tr>
 <tr>
-<td style="text-align:center">?</td>
-<td style="text-align:left">An unknow type(among other things, this code is used for function pointers)</td>
+<td align="center">?</td>
+<td align="left">An unknow type(among other things, this code is used for function pointers)</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="objc-msgSend"><a href="#objc-msgSend" class="headerlink" title="objc_msgSend"></a>objc_msgSend</h3><blockquote>
 <p>消息机制：给方法调用者发送消息</p>
 <p>OC中的方法调用，其实都是转化为objc_msgSend函数调用</p>
@@ -199,7 +199,8 @@
 <ul>
 <li><p>如果是从class_rw_t中查找方法</p>
 <ul>
-<li>已经排序：二分查找</li>
+<li><p>已经排序：二分查找</p>
+</li>
 <li><p>没有排序：便利查找</p>
 </li>
 <li><p>receiver通过isa指针找到receiverClass</p>
@@ -225,6 +226,9 @@
 <ul>
 <li><p>开发者可以在<code>forwardInvocation:</code>方法中自定义任何逻辑</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (id)forwardingTargetForSelector:(SEL)aSelector</span><br><span class="line">&#123;</span><br><span class="line">    if (aSelector == sel_registerName(&quot;test&quot;)) &#123;</span><br><span class="line">        return [OtherClass new];</span><br><span class="line">    &#125;</span><br><span class="line">    return [super forwardingTargetForSelector:aSelector];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <ul>
@@ -241,17 +245,25 @@
 <li>封装了一个方法调用，包括：方法调用者、方法名、方法参数</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)forwardInvocation:(NSInvocation *)anInvocation</span><br><span class="line">&#123;</span><br><span class="line">    anInvocation.target = [OtherClass new];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 </li>
 </ul>
 <h4 id="动态添加方法"><a href="#动态添加方法" class="headerlink" title="动态添加方法"></a><a href="#addmethod">动态添加方法</a></h4><ol>
 <li><p>OC</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)other</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">BOOL</span>)resolveInstanceMethod:(SEL)sel</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (sel == <span class="keyword">@selector</span>(test)) &#123;</span><br><span class="line">        Method method = class_getInstanceMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(other));</span><br><span class="line">        class_addMethod(<span class="keyword">self</span>, sel, method_getImplementation(method), method_getTypeEncoding(method))</span><br><span class="line">          returun <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> resolveInstanceMethod:sel];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><code>Method</code>可以理解为等价于<code>struct method_t *</code></li>
 </ul>
 </li>
 <li><p>C</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> other(<span class="keyword">id</span> <span class="keyword">self</span>, SEL _cmd) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@ - %s - %s"</span>, <span class="keyword">self</span>, sel_getName(_cmd, __func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">BOOL</span>)resolveInstanceMethod:(SEL)sel</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (sel == <span class="keyword">@selector</span>(test)) &#123;</span><br><span class="line">        class_addMethod(<span class="keyword">self</span>, sel, (IMP)other, <span class="string">"v@:"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> resolveInstanceMethod:sel];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 </li>
 </ol>
 <ul>
@@ -317,6 +329,7 @@
 </li>
 <li><p>获取父类</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class class_getSuperclass(Class cls);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h4 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h4><ul>
@@ -334,6 +347,7 @@
 </li>
 <li><p>获取成员变量的相关信息</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const char *ivar_getName(Ivar v); // 变量名</span><br><span class="line">const char *ivar_getTypeEncoding(Ivar v); // 变量 类型编码</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><ul>
@@ -360,6 +374,9 @@
 </li>
 <li><p>用block作为方法实现</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IMP imp_implementationWithBlock(id block);</span><br><span class="line">id imp_getBlock(IMP anImp);</span><br><span class="line">BOOL imp_removeBlock(IMP anImp);</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
 <h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ol>
