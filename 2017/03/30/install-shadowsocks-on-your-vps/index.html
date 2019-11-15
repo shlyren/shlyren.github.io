@@ -6,7 +6,6 @@
 </li>
 <li><p>安装<code>shadowsocks</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <p>##2.  配置信息</p>
@@ -19,15 +18,13 @@
 <li>编辑<code>config.json</code></li>
 </ol>
 <ul>
-<li><p>打开vi编辑器: <code>vi config.json</code></p>
-</li>
+<li>打开vi编辑器: <code>vi config.json</code></li>
 <li><p>按照下列格式填写配置信息</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">"server":"123.123.123.123", # 服务器地址</span><br><span class="line">"server_port":9000, #端口号</span><br><span class="line">"local_port":9000, # 本地端口号</span><br><span class="line">"password":"123456", # 密码</span><br><span class="line">"timeout":600, # 超时时间</span><br><span class="line">"method":"rc4-md5" # 密码类型</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>保存并且退出</p>
 </li>
-<li><p>阿里云香港搭shadowsocks服务的注意事项</p>
-<ol>
+<li>阿里云香港搭shadowsocks服务的注意事项<ol>
 <li>如果服务器是专有网络，<code>/etc/shadowsocks/config.json</code> 中的<code>server ip</code>是私有ip,而非公网ip</li>
 <li>服务器实例的安全组规则需要增加 自定义 TCP 在 相关端口（9000） 的访问 ,（允许所有ip访问，设置为0.0.0.0/0）</li>
 </ol>
@@ -46,4 +43,4 @@
   },
 })
 gitment.render('container')
-</script></div></div><div class="pure-u-1 pure-u-md-4-4"><div id="footer"><div style="margin:0 auto; padding:20px 0;">©2016-2017&#x9;<a href="mailto:mail@yuxiang.ren" target="_blank" style="color:#939393">任玉祥</a>.  在Github上查看网站<a href="https://github.com/shlyren/shlyren.github.io" target="_blank" style="color:#939393">源码</a>。<script src="https://s95.cnzz.com/z_stat.php?id=1259844339&amp;web_id=1259844339" language="JavaScript"></script><br> <a target="_blank" href="http://www.miitbeian.gov.cn" style="display:inline-block;height:20px;line-height:20px;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">浙ICP备17016497号-1</p></a>&#x9;<a style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">|</p></a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602008160" style="display:inline-block;line-height:20px;"><img src="https://renyuxiang.oss-cn-shanghai.aliyuncs.com/file/beian.png" style="float:left;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010602008160号</p></a><br>本站采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" style="color:#939393">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议 </a>进行许可。</div></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+</script></div></div><div class="pure-u-1 pure-u-md-4-4"><div id="footer"><div style="margin:0 auto; padding:20px 0;">©2016-2017&#x9;<a href="mailto:mail@yuxiang.ren" target="_blank" style="color:#939393">任玉祥</a>.  在Github上查看网站<a href="https://github.com/shlyren/shlyren.github.io" target="_blank" style="color:#939393">源码</a>。<script src="https://s95.cnzz.com/z_stat.php?id=1259844339&amp;web_id=1259844339" language="JavaScript"></script><br> <a target="_blank" href="http://www.miitbeian.gov.cn" style="display:inline-block;height:20px;line-height:20px;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">苏ICP备19062590号-1</p></a>&#x9;<a style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">|</p></a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602008160" style="display:inline-block;line-height:20px;"><img src="https://renyuxiang.oss-cn-shanghai.aliyuncs.com/file/beian.png" style="float:left;"><p style="float:left;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010602008160号</p></a><br>本站采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" style="color:#939393">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议 </a>进行许可。</div></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
