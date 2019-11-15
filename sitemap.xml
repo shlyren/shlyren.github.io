@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yuxiang.ren/about/index.html</loc>
+    <loc>https://yuxiang.ren/history/index.html</loc>
     
-    <lastmod>2019-11-15T08:05:59.031Z</lastmod>
+    <lastmod>2019-11-15T08:15:49.667Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/history/index.html</loc>
+    <loc>https://yuxiang.ren/about/index.html</loc>
     
-    <lastmod>2019-11-15T07:58:04.488Z</lastmod>
+    <lastmod>2019-11-15T08:05:59.031Z</lastmod>
     
   </url>
   
@@ -58,7 +58,7 @@
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/08/25/%E5%9C%A8Nginx%E4%B8%8A%E9%83%A8%E7%BD%B2Let-s-Encrypt%E8%AF%81%E4%B9%A6/</loc>
+    <loc>https://yuxiang.ren/2017/08/25/%25E5%259C%25A8Nginx%25E4%25B8%258A%25E9%2583%25A8%25E7%25BD%25B2Let-s-Encrypt%25E8%25AF%2581%25E4%25B9%25A6/</loc>
     
     <lastmod>2018-07-17T05:25:38.000Z</lastmod>
     
@@ -93,7 +93,7 @@
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/03/31/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://yuxiang.ren/2017/03/31/linux%25E5%25B8%25B8%25E7%2594%25A8%25E5%2591%25BD%25E4%25BB%25A4/</loc>
     
     <lastmod>2017-11-09T05:32:05.000Z</lastmod>
     
@@ -107,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/10/18/iOS10%E6%94%AF%E6%8C%81%E7%9A%84%E6%89%80%E6%9C%89%E8%B7%B3%E8%BD%AC/</loc>
+    <loc>https://yuxiang.ren/2017/10/18/iOS10%25E6%2594%25AF%25E6%258C%2581%25E7%259A%2584%25E6%2589%2580%25E6%259C%2589%25E8%25B7%25B3%25E8%25BD%25AC/</loc>
     
     <lastmod>2017-10-27T08:41:22.000Z</lastmod>
     
@@ -128,14 +128,14 @@
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/07/27/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://yuxiang.ren/2017/07/27/%25E5%25B8%25B8%25E7%2594%25A8%25E5%2591%25BD%25E4%25BB%25A4/</loc>
     
     <lastmod>2017-08-27T06:24:46.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/03/18/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+    <loc>https://yuxiang.ren/2016/03/18/%25E5%25A4%259A%25E7%25BA%25BF%25E7%25A8%258B/</loc>
     
     <lastmod>2017-08-26T12:30:51.000Z</lastmod>
     
@@ -149,7 +149,7 @@
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/03/21/%E5%88%A9%E7%94%A8pods%E7%BB%99%E4%BD%A0%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/</loc>
+    <loc>https://yuxiang.ren/2016/03/21/%25E5%2588%25A9%25E7%2594%25A8pods%25E7%25BB%2599%25E4%25BD%25A0%25E7%259A%2584%25E7%25A8%258B%25E5%25BA%258F%25E6%25B7%25BB%25E5%258A%25A0%25E7%25AC%25AC%25E4%25B8%2589%25E6%2596%25B9%25E5%25BA%2593/</loc>
     
     <lastmod>2017-08-26T12:27:17.000Z</lastmod>
     
@@ -163,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/05/22/javaScript%E5%9F%BA%E7%A1%80/</loc>
+    <loc>https://yuxiang.ren/2017/05/22/javaScript%25E5%259F%25BA%25E7%25A1%2580/</loc>
     
     <lastmod>2017-08-26T05:50:45.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/08/10/ViewController%E6%BB%9A%E5%8A%A8%E6%A0%87%E9%A2%98/</loc>
+    <loc>https://yuxiang.ren/2017/08/10/ViewController%25E6%25BB%259A%25E5%258A%25A8%25E6%25A0%2587%25E9%25A2%2598/</loc>
     
     <lastmod>2017-08-26T05:49:14.000Z</lastmod>
     
@@ -191,49 +191,49 @@
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/03/30/Ubuntu%E6%9B%B4%E6%96%B0Nginx%E6%9C%8D%E5%8A%A1/</loc>
+    <loc>https://yuxiang.ren/2017/03/30/Ubuntu%25E6%259B%25B4%25E6%2596%25B0Nginx%25E6%259C%258D%25E5%258A%25A1/</loc>
     
     <lastmod>2017-08-26T05:48:52.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/04/27/Terminal%E5%91%BD%E4%BB%A4%E4%B9%8Bwget%E7%94%A8%E6%B3%95/</loc>
+    <loc>https://yuxiang.ren/2017/04/27/Terminal%25E5%2591%25BD%25E4%25BB%25A4%25E4%25B9%258Bwget%25E7%2594%25A8%25E6%25B3%2595/</loc>
     
     <lastmod>2017-08-26T05:48:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/04/26/Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B003/</loc>
+    <loc>https://yuxiang.ren/2016/04/26/Swift%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B003/</loc>
     
     <lastmod>2017-08-26T05:48:35.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/04/24/Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002/</loc>
+    <loc>https://yuxiang.ren/2016/04/24/Swift%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B002/</loc>
     
     <lastmod>2017-08-26T05:48:31.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/04/23/Swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/</loc>
+    <loc>https://yuxiang.ren/2016/04/23/Swift%25E5%25AD%25A6%25E4%25B9%25A0%25E7%25AC%2594%25E8%25AE%25B001/</loc>
     
     <lastmod>2017-08-26T05:48:26.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/05/16/SVN%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://yuxiang.ren/2017/05/16/SVN%25E5%25B8%25B8%25E7%2594%25A8%25E5%2591%25BD%25E4%25BB%25A4/</loc>
     
     <lastmod>2017-08-26T05:48:19.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/03/30/OC%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</loc>
+    <loc>https://yuxiang.ren/2017/03/30/OC%25E5%259F%25BA%25E6%259C%25AC%25E6%25A6%2582%25E5%25BF%25B5/</loc>
     
     <lastmod>2017-08-26T05:48:09.000Z</lastmod>
     
@@ -247,7 +247,7 @@
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/03/26/IOS%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BD%9C%E4%B8%9A%E7%AF%87(OC)/</loc>
+    <loc>https://yuxiang.ren/2016/03/26/IOS%25E5%25AD%25A6%25E4%25B9%25A0%25E4%25B9%258B%25E4%25BD%259C%25E4%25B8%259A%25E7%25AF%2587(OC)/</loc>
     
     <lastmod>2017-08-26T05:47:55.000Z</lastmod>
     
@@ -268,28 +268,28 @@
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/06/03/https%E4%BD%BF%E7%94%A8%E7%BD%91%E6%98%93%E9%9F%B3%E4%B9%90%E5%A4%96%E9%93%BE%E6%92%AD%E6%94%BE%E5%99%A8%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE/</loc>
+    <loc>https://yuxiang.ren/2016/06/03/https%25E4%25BD%25BF%25E7%2594%25A8%25E7%25BD%2591%25E6%2598%2593%25E9%259F%25B3%25E4%25B9%2590%25E5%25A4%2596%25E9%2593%25BE%25E6%2592%25AD%25E6%2594%25BE%25E5%2599%25A8%25E6%2597%25A0%25E6%25B3%2595%25E6%2592%25AD%25E6%2594%25BE/</loc>
     
     <lastmod>2017-08-26T05:47:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/08/25/hexo%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%88%B0%E5%A4%9A%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <loc>https://yuxiang.ren/2017/08/25/hexo%25E5%258D%259A%25E5%25AE%25A2%25E8%2587%25AA%25E5%258A%25A8%25E9%2583%25A8%25E7%25BD%25B2%25E5%2588%25B0%25E5%25A4%259A%25E5%258F%25B0%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8/</loc>
     
     <lastmod>2017-08-26T05:47:31.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/03/26/const-static-extern%E7%AE%80%E4%BB%8B/</loc>
+    <loc>https://yuxiang.ren/2016/03/26/const-static-extern%25E7%25AE%2580%25E4%25BB%258B/</loc>
     
     <lastmod>2017-08-26T05:47:26.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/03/30/C%E8%AF%AD%E8%A8%80%E7%9A%84%E5%87%A0%E7%A7%8D%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95/</loc>
+    <loc>https://yuxiang.ren/2017/03/30/C%25E8%25AF%25AD%25E8%25A8%2580%25E7%259A%2584%25E5%2587%25A0%25E7%25A7%258D%25E6%258E%2592%25E5%25BA%258F%25E6%2596%25B9%25E6%25B3%2595/</loc>
     
     <lastmod>2017-08-26T05:47:22.000Z</lastmod>
     
@@ -310,49 +310,49 @@
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/03/24/android-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</loc>
+    <loc>https://yuxiang.ren/2017/03/24/android-%25E5%259F%25BA%25E6%259C%25AC%25E6%25A6%2582%25E5%25BF%25B5/</loc>
     
     <lastmod>2017-08-26T05:47:10.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/03/30/%E5%9C%A8Mac%E4%B8%8A%E9%85%8D%E7%BD%AERect-Native%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
+    <loc>https://yuxiang.ren/2017/03/30/%25E5%259C%25A8Mac%25E4%25B8%258A%25E9%2585%258D%25E7%25BD%25AERect-Native%25E5%25BC%2580%25E5%258F%2591%25E7%258E%25AF%25E5%25A2%2583/</loc>
     
     <lastmod>2017-08-26T05:47:00.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2017/04/12/%E5%91%BD%E4%BB%A4%E7%BB%99%E5%AE%89%E5%8D%93%E7%A8%8B%E5%BA%8F%E6%89%93%E5%8C%85/</loc>
+    <loc>https://yuxiang.ren/2017/04/12/%25E5%2591%25BD%25E4%25BB%25A4%25E7%25BB%2599%25E5%25AE%2589%25E5%258D%2593%25E7%25A8%258B%25E5%25BA%258F%25E6%2589%2593%25E5%258C%2585/</loc>
     
     <lastmod>2017-08-26T05:46:56.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/03/21/%E5%91%BD%E4%BB%A4%E5%AE%89%E8%A3%85Mac%E7%B3%BB%E7%BB%9F/</loc>
+    <loc>https://yuxiang.ren/2016/03/21/%25E5%2591%25BD%25E4%25BB%25A4%25E5%25AE%2589%25E8%25A3%2585Mac%25E7%25B3%25BB%25E7%25BB%259F/</loc>
     
     <lastmod>2017-08-26T05:46:53.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/05/23/%E9%9D%A2%E8%AF%95%E9%A2%98-01/</loc>
+    <loc>https://yuxiang.ren/2016/05/23/%25E9%259D%25A2%25E8%25AF%2595%25E9%25A2%2598-01/</loc>
     
     <lastmod>2017-08-26T05:46:49.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/06/05/%E6%92%A9%E5%A6%B9%E6%8B%9B%E6%95%B0/</loc>
+    <loc>https://yuxiang.ren/2016/06/05/%25E6%2592%25A9%25E5%25A6%25B9%25E6%258B%259B%25E6%2595%25B0/</loc>
     
     <lastmod>2017-08-26T05:46:45.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/06/05/%E5%BE%88%E4%B9%85%E4%BB%A5%E5%89%8D/</loc>
+    <loc>https://yuxiang.ren/2016/06/05/%25E5%25BE%2588%25E4%25B9%2585%25E4%25BB%25A5%25E5%2589%258D/</loc>
     
     <lastmod>2017-08-26T05:46:39.000Z</lastmod>
     
@@ -366,7 +366,7 @@
   </url>
   
   <url>
-    <loc>https://yuxiang.ren/2016/04/01/%E7%9D%80%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AAAPP/</loc>
+    <loc>https://yuxiang.ren/2016/04/01/%25E7%259D%2580%25E6%2589%258B%25E5%2586%2599%25E4%25B8%2580%25E4%25B8%25AAAPP/</loc>
     
     <lastmod>2017-08-26T05:21:27.000Z</lastmod>
     
